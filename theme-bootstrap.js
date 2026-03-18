@@ -12,7 +12,9 @@
 (function () {
   "use strict";
 
-  var THEME_KEY = "sm-theme";       // "dark" | "light"
+  // Single source of truth: UIKit.THEME_KEY (set in ui-kit.js).
+  // Duplicated here because bootstrap runs before ui-kit.js loads.
+  var THEME_KEY = "sm-theme";
 
   var stored = localStorage.getItem(THEME_KEY);
   var theme = stored || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");

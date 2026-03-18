@@ -22,8 +22,8 @@
 
   /* ── Text ── */
   --text:            #d4be98;   /* text-primary: warm cream body text */
-  --text-secondary:  #a89b84;   /* text-secondary: dimmed text */
-  --text-muted:      #7c7160;   /* text-muted: placeholder, disabled */
+  --text-secondary:  #b5a993;   /* text-secondary: dimmed text */
+  --text-muted:      #ccbba7;   /* text-muted: placeholder, disabled */
   --text-inverse:    #2d2b22;   /* text-inverse: on accent backgrounds */
 
   /* ── Accents ── */
@@ -37,13 +37,13 @@
   /* ── Semantic ── */
   --success:         #89b482;   /* accent-teal-light / sage green */
   --warn:            #d8a657;
-  --danger:          #ea6962;   /* syntax-error: muted red */
+  --danger:          #ef8a83;   /* syntax-error: muted red */
 
   /* ── Syntax (for code highlighting) ── */
   --syntax-string:   #a9b665;   /* muted green */
   --syntax-keyword:  #d3869b;   /* muted pink/mauve */
   --syntax-function: #d8a657;   /* gold */
-  --syntax-comment:  #7c7160;   /* muted */
+  --syntax-comment:  #9d8e7f;   /* muted */
   --syntax-type:     #89b482;   /* sage green */
 
   /* ── Typography ── */
@@ -53,8 +53,8 @@
   /* ── Terminal / Log ── */
   --term-bg:         #242219;
   --term-scrollbar:  #5c5a4d;
-  --term-time:       #6b6858;
-  --term-text:       #a89b84;
+  --term-time:       #9d9787;
+  --term-text:       #b5a993;
   --term-ok:         #89b482;
   --term-warn:       #d8a657;
   --term-err:        #ea6962;
@@ -75,49 +75,49 @@
 /* ── Light theme ── */
 [data-theme="light"] {
   /* ── Surfaces ── */
-  --bg:              #f0e8d0;
-  --surface:         #ede0c4;
-  --surface2:        #e0d4b4;
-  --surface-muted:   #d4c8a8;
-  --surface-hl:      #c8b99a;
+  --bg:              #E1DDD4;
+  --surface:         #E1DDD4;
+  --surface2:        #C9C8BD;
+  --surface-muted:   #C9C8BD;
+  --surface-hl:      #C9C8BD;
 
   /* ── Borders ── */
-  --border:          #c8b99a;
-  --border-focus:    #a06820;
-  --focus-ring:      rgba(138, 106, 40, 0.35);
+  --border:          #000;
+  --border-focus:    #000;
+  --focus-ring:      rgba(0, 0, 0, 0.25);
 
   /* ── Text ── */
-  --text:            #2d2b22;
-  --text-secondary:  #5c5a4d;
-  --text-muted:      #6b6858;
-  --text-inverse:    #f0e8d0;
+  --text:            #000;
+  --text-secondary:  #000;
+  --text-muted:      #000;
+  --text-inverse:    #E1DDD4;
 
   /* ── Accents ── */
-  --accent:          #a06820;
-  --accent-hover:    #b87a2a;
-  --accent-teal:     #4a7a78;
-  --accent-olive:    #5c7a3a;
-  --accent-brown:    #7a5a38;
-  --accent-dark:     #5a4830;
+  --accent:          #000;
+  --accent-hover:    #333;
+  --accent-teal:     #000;
+  --accent-olive:    #000;
+  --accent-brown:    #000;
+  --accent-dark:     #000;
 
   /* ── Semantic ── */
-  --success:         #5a7a3a;
+  --success:         #2a6a2a;
   --warn:            #8a5c10;
   --danger:          #b03030;
 
   /* ── Syntax ── */
-  --syntax-string:   #6a7a30;
-  --syntax-keyword:  #9a5070;
-  --syntax-function: #a06820;
-  --syntax-comment:  #8a8070;
-  --syntax-type:     #5a7a3a;
+  --syntax-string:   #2a6a2a;
+  --syntax-keyword:  #7a3070;
+  --syntax-function: #000;
+  --syntax-comment:  #444;
+  --syntax-type:     #2a6a2a;
 
   /* ── Terminal / Log ── */
-  --term-bg:         #e8dcc8;
-  --term-scrollbar:  #b8a890;
-  --term-time:       #8a8070;
-  --term-text:       #3a3830;
-  --term-ok:         #5a7a3a;
+  --term-bg:         #C9C8BD;
+  --term-scrollbar:  #999;
+  --term-time:       #555;
+  --term-text:       #000;
+  --term-ok:         #2a6a2a;
   --term-warn:       #8a5c10;
   --term-err:        #b03030;
 
@@ -130,8 +130,8 @@
   --canvas-clear-hover:  rgba(176, 48, 48, 0.88);
 
   /* ── Scrollbar ── */
-  --scrollbar-track: #ede0c4;
-  --scrollbar-thumb: #b8a890;
+  --scrollbar-track: #E1DDD4;
+  --scrollbar-thumb: #999;
 }
 
 /* Smooth transitions when switching themes */

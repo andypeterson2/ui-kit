@@ -20,6 +20,9 @@
 
   var UIKit = root.UIKit || {};
 
+  /** Shared theme storage key — must match theme-bootstrap.js. */
+  UIKit.THEME_KEY = "sm-theme";
+
   // ═══════════════════════════════════════════════════════════════════════════
   // THEME TOGGLE
   // ═══════════════════════════════════════════════════════════════════════════
@@ -28,28 +31,40 @@
    * Initialise a dark/light theme toggle button.
    *
    * @param {HTMLElement} el         - The toggle button element.
-   * @param {string}      [key="theme"] - localStorage key for persistence.
-   * @returns {{ setTheme(t: string): void }}
+   * @param {Object}      [opts]
+   * @param {string}      [opts.key]       - localStorage key (default: UIKit.THEME_KEY).
+   * @param {string}      [opts.darkIcon]  - HTML for "switch to dark" icon.
+   * @param {string}      [opts.lightIcon] - HTML for "switch to light" icon.
+   * @returns {{ setTheme(t: string): void, destroy(): void }}
    */
-  UIKit.initThemeToggle = function (el, key) {
-    key = key || "theme";
+  UIKit.initThemeToggle = function (el, opts) {
+    opts = opts || {};
+    // Backwards compat: accept string as second arg (legacy key param)
+    if (typeof opts === "string") { opts = { key: opts }; }
+    var key = opts.key || UIKit.THEME_KEY;
+    var darkIcon  = opts.darkIcon  || (UIKit.ICONS && UIKit.ICONS.moon) || "";
+    var lightIcon = opts.lightIcon || (UIKit.ICONS && UIKit.ICONS.sun)  || "";
 
     function apply(theme) {
       document.documentElement.dataset.theme = theme;
-      el.innerHTML = theme === "light" ? UIKit.ICONS.moon : UIKit.ICONS.sun;
+      el.innerHTML = theme === "light" ? darkIcon : lightIcon;
       el.setAttribute("aria-label",
         theme === "light" ? "Switch to dark mode" : "Switch to light mode");
     }
 
-    apply(localStorage.getItem(key) || "dark");
-
-    el.addEventListener("click", function () {
+    function onClick() {
       var next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
       apply(next);
       localStorage.setItem(key, next);
-    });
+    }
 
-    return { setTheme: apply };
+    apply(localStorage.getItem(key) || "dark");
+    el.addEventListener("click", onClick);
+
+    return {
+      setTheme: apply,
+      destroy: function () { el.removeEventListener("click", onClick); }
+    };
   };
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -78,7 +93,12 @@
 
     handleEl.addEventListener("click", toggle);
 
-    return { open: open, close: close, toggle: toggle };
+    return {
+      open: open,
+      close: close,
+      toggle: toggle,
+      destroy: function () { handleEl.removeEventListener("click", toggle); }
+    };
   };
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -102,18 +122,27 @@
       triggerEl.setAttribute("aria-expanded", "false");
     }
 
-    triggerEl.addEventListener("click", function (e) {
+    function onTrigger(e) {
       e.stopPropagation();
       menuEl.classList.contains("hidden") ? open() : close();
-    });
-
-    document.addEventListener("click", function (e) {
+    }
+    function onOutside(e) {
       if (!menuEl.contains(e.target) && e.target !== triggerEl) {
         close();
       }
-    });
+    }
 
-    return { open: open, close: close };
+    triggerEl.addEventListener("click", onTrigger);
+    document.addEventListener("click", onOutside);
+
+    return {
+      open: open,
+      close: close,
+      destroy: function () {
+        triggerEl.removeEventListener("click", onTrigger);
+        document.removeEventListener("click", onOutside);
+      }
+    };
   };
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -126,6 +155,7 @@
    * Register a callback that fires when the Escape key is pressed.
    *
    * @param {function(): void} callback
+   * @returns {function(): void} Unsubscribe function.
    */
   UIKit.onEscape = function (callback) {
     if (_escapeCallbacks.length === 0) {
@@ -137,6 +167,10 @@
       });
     }
     _escapeCallbacks.push(callback);
+    return function () {
+      var idx = _escapeCallbacks.indexOf(callback);
+      if (idx !== -1) _escapeCallbacks.splice(idx, 1);
+    };
   };
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -224,6 +258,89 @@
       while (terminalEl.children.length > max) terminalEl.removeChild(terminalEl.firstChild);
       terminalEl.scrollTop = terminalEl.scrollHeight;
     };
+  };
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TOAST
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  /**
+   * Show a toast notification.
+   *
+   * @param {string}  message          - Text to display.
+   * @param {Object}  [opts]
+   * @param {string}  [opts.type]      - "success", "warn", or "error".
+   * @param {number}  [opts.duration=3000] - Auto-dismiss in ms (0 = manual).
+   * @param {string}  [opts.container] - Selector for the container (default: auto-created).
+   * @returns {HTMLElement} The toast element.
+   */
+  UIKit.toast = function (message, opts) {
+    opts = opts || {};
+    var duration = opts.duration !== undefined ? opts.duration : 3000;
+
+    // Find or create container
+    var container = document.querySelector(".ui-toast-container");
+    if (!container) {
+      container = document.createElement("div");
+      container.className = "ui-toast-container";
+      document.body.appendChild(container);
+    }
+
+    var toast = document.createElement("div");
+    toast.className = "ui-toast" + (opts.type ? " ui-toast-" + opts.type : "");
+    toast.textContent = message;
+    container.appendChild(toast);
+
+    // Trigger reflow then add visible class for animation
+    toast.offsetHeight; // force reflow
+    toast.classList.add("visible");
+
+    if (duration > 0) {
+      setTimeout(function () { UIKit.dismissToast(toast); }, duration);
+    }
+    return toast;
+  };
+
+  /**
+   * Dismiss a toast element.
+   * @param {HTMLElement} toast
+   */
+  UIKit.dismissToast = function (toast) {
+    toast.classList.remove("visible");
+    setTimeout(function () {
+      if (toast.parentNode) toast.parentNode.removeChild(toast);
+    }, 300);
+  };
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // FADE-IN (Intersection Observer)
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  /**
+   * Observe `.ui-fade-in` elements and add `.visible` when they scroll into view.
+   *
+   * @param {string|HTMLElement} [scope=document] - Scope selector or element.
+   * @param {Object} [opts]
+   * @param {number} [opts.threshold=0.15] - Intersection threshold.
+   */
+  UIKit.initFadeIn = function (scope, opts) {
+    opts = opts || {};
+    var root = typeof scope === "string" ? document.querySelector(scope) : (scope || document);
+    var threshold = opts.threshold || 0.15;
+
+    var observer = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          entries[i].target.classList.add("visible");
+          observer.unobserve(entries[i].target);
+        }
+      }
+    }, { threshold: threshold });
+
+    var els = root.querySelectorAll(".ui-fade-in");
+    for (var i = 0; i < els.length; i++) {
+      observer.observe(els[i]);
+    }
   };
 
   // ═══════════════════════════════════════════════════════════════════════════

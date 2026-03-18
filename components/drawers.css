@@ -61,8 +61,7 @@
 
 /* ── Chevron arrow inside handle ── */
 .drawer-chevron {
-  width: 10px;
-  height: 10px;
+  font-size: 10px;
   color: var(--text-muted);
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.15s;
   flex-shrink: 0;
@@ -74,10 +73,10 @@
 .side-handle:hover,
 .side-handle[aria-expanded="true"] {
   background: var(--surface2);
-  color: var(--accent);
+  color: var(--text);
 }
 .side-handle:hover .drawer-chevron,
-.side-handle[aria-expanded="true"] .drawer-chevron { color: var(--accent); }
+.side-handle[aria-expanded="true"] .drawer-chevron { color: var(--text); }
 .side-handle-left[aria-expanded="true"] { border-left-color: var(--accent); }
 
 /* ── Side panel ── */

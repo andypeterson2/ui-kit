@@ -5,6 +5,7 @@
   flex: 1;
   min-height: 0;
   background: var(--term-bg);
+  border: 1px solid var(--border);
   padding: 10px 12px;
   overflow-y: auto;
   font-family: ui-monospace, 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
