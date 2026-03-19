@@ -78,6 +78,26 @@
 .side-handle:hover .drawer-chevron,
 .side-handle[aria-expanded="true"] .drawer-chevron { color: var(--text); }
 .side-handle-left[aria-expanded="true"] { border-left-color: var(--accent); }
+.side-handle-right[aria-expanded="true"] { border-right-color: var(--accent); }
+
+/* ── Right drawer ── */
+.drawer-right {
+  width: 22px;
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.drawer-right.open { width: 322px; }
+.drawer-right > .side-handle {
+  left: 0;
+  border-right: 1px solid var(--border);
+}
+.drawer-right > .side-handle > span {
+  transform: rotate(0deg);
+}
+.drawer-right > .side-panel {
+  left: 22px;
+  width: 300px;
+  border-left: 1px solid var(--border);
+}
 
 /* ── Side panel ── */
 .side-panel {
