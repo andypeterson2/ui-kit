@@ -17,7 +17,7 @@
   var THEME_KEY = "sm-theme";
 
   var stored = localStorage.getItem(THEME_KEY);
-  var theme = stored || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+  var theme = stored || "light";
 
   document.documentElement.dataset.theme = theme;
 

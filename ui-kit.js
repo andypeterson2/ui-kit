@@ -58,7 +58,7 @@
       localStorage.setItem(key, next);
     }
 
-    apply(localStorage.getItem(key) || "dark");
+    apply(localStorage.getItem(key) || document.documentElement.dataset.theme || "light");
     el.addEventListener("click", onClick);
 
     return {
