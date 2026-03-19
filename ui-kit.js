@@ -344,6 +344,120 @@
   };
 
   // ═══════════════════════════════════════════════════════════════════════════
+  // CONNECT WIDGET
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  /**
+   * Initialise a server-connect widget (host:port form with status dot).
+   *
+   * Reads/writes the URL via ServiceConfig (if available) and calls
+   * `opts.onConnect(url)` when the user clicks Connect.
+   *
+   * @param {HTMLElement} el     - Container element (gets `.ui-connect` class).
+   * @param {Object}      opts
+   * @param {string}      opts.service       - ServiceConfig key (e.g. "nonogram").
+   * @param {string}      [opts.defaultHost] - Default host (e.g. "localhost").
+   * @param {number}      [opts.defaultPort] - Default port (e.g. 5055).
+   * @param {string}      [opts.label]       - Label text (default: "Server").
+   * @param {Function}    [opts.onConnect]   - Called with { host, port, url } on connect.
+   * @returns {{ getUrl(): string, setStatus(s: string, msg?: string): void, destroy(): void }}
+   */
+  UIKit.initConnect = function (el, opts) {
+    opts = opts || {};
+    var service     = opts.service || "";
+    var label       = opts.label || "Server";
+    var defaultHost = opts.defaultHost || "localhost";
+    var defaultPort = opts.defaultPort || 8080;
+
+    // Parse existing ServiceConfig value if available
+    var stored = "";
+    if (root.ServiceConfig && service) {
+      stored = root.ServiceConfig.get(service, "");
+    }
+    var initHost = defaultHost;
+    var initPort = defaultPort;
+    if (stored) {
+      try {
+        var u = new URL(stored);
+        initHost = u.hostname || defaultHost;
+        initPort = parseInt(u.port) || defaultPort;
+      } catch (_) {}
+    }
+
+    el.classList.add("ui-connect");
+    el.innerHTML =
+      '<div class="ui-connect-row">' +
+        '<span class="ui-connect-label">' + label + '</span>' +
+        '<div class="ui-connect-inputs">' +
+          '<input type="text" class="ui-connect-host" placeholder="' + defaultHost + '" value="' + initHost + '" spellcheck="false" autocomplete="off">' +
+          '<span class="ui-connect-colon">:</span>' +
+          '<input type="number" class="ui-connect-port" placeholder="' + defaultPort + '" value="' + initPort + '" min="1" max="65535">' +
+        '</div>' +
+        '<button type="button" class="ui-connect-btn">Connect</button>' +
+      '</div>' +
+      '<div class="ui-connect-row ui-connect-status">' +
+        '<span class="ui-connect-dot" data-state="idle"></span>' +
+        '<span class="ui-connect-state">Not connected</span>' +
+      '</div>';
+
+    var hostInput = el.querySelector(".ui-connect-host");
+    var portInput = el.querySelector(".ui-connect-port");
+    var btn       = el.querySelector(".ui-connect-btn");
+    var dot       = el.querySelector(".ui-connect-dot");
+    var stateEl   = el.querySelector(".ui-connect-state");
+
+    function buildUrl() {
+      var h = hostInput.value.trim() || defaultHost;
+      var p = parseInt(portInput.value) || defaultPort;
+      return "http://" + h + ":" + p;
+    }
+
+    function onClick() {
+      var url = buildUrl();
+      if (root.ServiceConfig && service) {
+        root.ServiceConfig.set(service, url);
+      }
+      if (opts.onConnect) {
+        opts.onConnect({
+          host: hostInput.value.trim() || defaultHost,
+          port: parseInt(portInput.value) || defaultPort,
+          url: url
+        });
+      }
+    }
+
+    btn.addEventListener("click", onClick);
+
+    function onKey(e) { if (e.key === "Enter") { e.preventDefault(); onClick(); } }
+    hostInput.addEventListener("keydown", onKey);
+    portInput.addEventListener("keydown", onKey);
+
+    var STATUS_MAP = {
+      connected:    { dot: "connected",    text: "Connected",     btnCls: true  },
+      connecting:   { dot: "connecting",   text: "Connecting\u2026", btnCls: false },
+      disconnected: { dot: "disconnected", text: "Disconnected",  btnCls: false },
+      error:        { dot: "disconnected", text: "Error",         btnCls: false },
+      idle:         { dot: "idle",         text: "Not connected", btnCls: false },
+    };
+
+    return {
+      getUrl: buildUrl,
+      setStatus: function (status, message) {
+        var s = STATUS_MAP[status] || STATUS_MAP.idle;
+        dot.dataset.state = s.dot;
+        stateEl.textContent = message || s.text;
+        btn.classList.toggle("connected", s.btnCls);
+        btn.textContent = s.btnCls ? "Connected" : "Connect";
+      },
+      destroy: function () {
+        btn.removeEventListener("click", onClick);
+        hostInput.removeEventListener("keydown", onKey);
+        portInput.removeEventListener("keydown", onKey);
+      }
+    };
+  };
+
+  // ═══════════════════════════════════════════════════════════════════════════
 
   root.UIKit = UIKit;
 
