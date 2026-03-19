@@ -80,7 +80,7 @@ describe('UIKit.initConnect', () => {
     expect(onConnect).toHaveBeenCalledWith({
       host: 'localhost',
       port: 5055,
-      url: 'http://localhost:5055'
+      url: 'https://localhost:5055'
     });
   });
 
@@ -88,7 +88,7 @@ describe('UIKit.initConnect', () => {
     const el = document.getElementById('connect-test');
     const widget = UIKit.initConnect(el, { defaultHost: 'myhost', defaultPort: 8080 });
 
-    expect(widget.getUrl()).toBe('http://myhost:8080');
+    expect(widget.getUrl()).toBe('https://myhost:8080');
   });
 
   test('destroy() removes click listener', () => {

@@ -39,7 +39,7 @@
     // Strip trailing slash
     if (url.endsWith("/")) url = url.slice(0, -1);
     // Add protocol if missing
-    if (!/^https?:\/\//.test(url)) url = "http://" + url;
+    if (!/^https?:\/\//.test(url)) url = "https://" + url;
     return url;
   }
 

@@ -44,12 +44,12 @@ describe('ServiceConfig', () => {
 
   test('get() returns URL param value when present', () => {
     const sc = loadServiceConfig('test=192.168.1.10:5055');
-    expect(sc.get('test', 'http://localhost:5000')).toBe('http://192.168.1.10:5055');
+    expect(sc.get('test', 'http://localhost:5000')).toBe('https://192.168.1.10:5055');
   });
 
   test('URL params take priority over localStorage', () => {
     const sc = loadServiceConfig('test=param:2222', { test: 'http://stored:1111' });
-    expect(sc.get('test', 'http://default:3333')).toBe('http://param:2222');
+    expect(sc.get('test', 'http://default:3333')).toBe('https://param:2222');
   });
 
   test('set() persists to localStorage', () => {
@@ -67,9 +67,9 @@ describe('ServiceConfig', () => {
     expect(stored.myservice).toBeUndefined();
   });
 
-  test('normalises URLs: adds http://, strips trailing slash', () => {
+  test('normalises URLs: adds https://, strips trailing slash', () => {
     const sc = loadServiceConfig();
-    expect(sc.get('x', 'localhost:3000/')).toBe('http://localhost:3000');
+    expect(sc.get('x', 'localhost:3000/')).toBe('https://localhost:3000');
     expect(sc.get('x', 'http://host:80/')).toBe('http://host:80');
   });
 
