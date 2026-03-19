@@ -49,6 +49,18 @@
   /* ── Typography ── */
   --radius:          0;
   --font:            'Atkinson Hyperlegible', system-ui, sans-serif;
+  --font-mono:       ui-monospace, 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  --text-xs:         10px;
+  --text-sm:         11px;
+  --text-base:       13px;
+  --text-lg:         15px;
+  --text-xl:         18px;
+  --text-2xl:        22px;
+  --text-3xl:        28px;
+
+  /* ── Motion ── */
+  --duration-fast:   0.1s;
+  --duration-normal: 0.2s;
 
   /* ── Terminal / Log ── */
   --term-bg:         #242219;
@@ -76,29 +88,29 @@
 [data-theme="light"] {
   /* ── Surfaces ── */
   --bg:              #E1DDD4;
-  --surface:         #E1DDD4;
+  --surface:         #D6D2C8;
   --surface2:        #C9C8BD;
-  --surface-muted:   #C9C8BD;
-  --surface-hl:      #C9C8BD;
+  --surface-muted:   #BDB9AE;
+  --surface-hl:      #B3AFA4;
 
   /* ── Borders ── */
-  --border:          #000;
-  --border-focus:    #000;
-  --focus-ring:      rgba(0, 0, 0, 0.25);
+  --border:          #9e9a8f;
+  --border-focus:    #7a5c1f;
+  --focus-ring:      rgba(122, 92, 31, 0.3);
 
   /* ── Text ── */
-  --text:            #000;
-  --text-secondary:  #000;
-  --text-muted:      #000;
+  --text:            #2d2a22;
+  --text-secondary:  #4a4639;
+  --text-muted:      #6e6a5d;
   --text-inverse:    #E1DDD4;
 
   /* ── Accents ── */
-  --accent:          #000;
-  --accent-hover:    #333;
-  --accent-teal:     #000;
-  --accent-olive:    #000;
-  --accent-brown:    #000;
-  --accent-dark:     #000;
+  --accent:          #8a6b20;
+  --accent-hover:    #7a5c1f;
+  --accent-teal:     #3d7a76;
+  --accent-olive:    #5c7030;
+  --accent-brown:    #7a5530;
+  --accent-dark:     #5c4420;
 
   /* ── Semantic ── */
   --success:         #2a6a2a;

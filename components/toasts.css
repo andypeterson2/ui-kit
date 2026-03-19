@@ -29,7 +29,6 @@
   opacity: 0;
   transform: translateY(-10px);
   transition: opacity 0.2s, transform 0.2s;
-  font-family: var(--font);
   max-width: 480px;
   width: 100%;
 }
@@ -45,7 +44,6 @@
   cursor: pointer;
   font-size: 14px;
   padding: 0 2px;
-  font-family: var(--font);
 }
 .ui-toast-dismiss:hover { color: var(--text); }
 

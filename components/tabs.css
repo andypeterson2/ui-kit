@@ -21,7 +21,6 @@
   color: var(--text-muted);
   border: none;
   border-right: 1px solid var(--border);
-  font-family: var(--font);
   transition: background 0.15s, color 0.15s;
   user-select: none;
 }

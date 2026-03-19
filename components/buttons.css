@@ -12,6 +12,8 @@
   font-family: var(--font);
 }
 .btn:disabled { opacity: 0.40; cursor: not-allowed; }
+.btn:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 1px; }
+.btn:active:not(:disabled) { opacity: 0.75; }
 
 .btn-primary { background: var(--accent); color: var(--text-inverse); }
 .btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
@@ -27,22 +29,16 @@
   background: transparent;
   color: var(--danger);
   border: 1px solid var(--danger);
-  font-family: var(--font);
-  cursor: pointer;
 }
 .btn-danger:hover:not(:disabled) { background: var(--danger); color: var(--text-inverse); }
-.btn-danger:disabled { opacity: 0.40; cursor: not-allowed; }
 
 .btn-icon {
   background: transparent;
   color: var(--text-muted);
   border: 1px solid var(--border);
-  cursor: pointer;
-  font-family: var(--font);
   transition: border-color 0.15s, color 0.15s;
 }
 .btn-icon:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
-.btn-icon:disabled { opacity: 0.40; cursor: not-allowed; }
 
 /* ── Button loading pulse ── */
 @keyframes btn-pulse {
@@ -57,3 +53,4 @@
 /* ── Size variants ── */
 .btn-sm { font-size: 11px; padding: 4px 10px; }
 .btn-xs { font-size: 10px; padding: 2px 8px; }
+.btn-lg { font-size: 14px; padding: 8px 20px; }

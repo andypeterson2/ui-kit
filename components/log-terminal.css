@@ -8,7 +8,7 @@
   border: 1px solid var(--border);
   padding: 10px 12px;
   overflow-y: auto;
-  font-family: ui-monospace, 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   line-height: 1.6;
   display: flex;

@@ -27,7 +27,8 @@
   user-select: none;
 }
 .form-row input,
-.form-row select {
+.form-row select,
+.form-row textarea {
   width: 100%;
   background: var(--surface2);
   border: 1px solid var(--border);
@@ -38,8 +39,26 @@
   font-family: var(--font);
   transition: border-color 0.15s;
 }
+.form-row textarea {
+  resize: vertical;
+  min-height: 60px;
+  line-height: 1.5;
+}
 .form-row input:focus,
-.form-row select:focus { border-color: var(--accent); }
+.form-row select:focus,
+.form-row textarea:focus { border-color: var(--accent); }
+.form-row input:focus-visible,
+.form-row select:focus-visible,
+.form-row textarea:focus-visible { outline: 2px solid var(--border-focus); outline-offset: -1px; }
+.form-row input:disabled,
+.form-row select:disabled,
+.form-row textarea:disabled { opacity: 0.5; cursor: not-allowed; }
+.form-row input::placeholder,
+.form-row textarea::placeholder { color: var(--text-muted); opacity: 0.6; }
+
+/* ── Validation ── */
+.is-invalid { border-color: var(--danger) !important; }
+.is-valid   { border-color: var(--success) !important; }
 
 /* ═══════════════════════════════
    CONTROL ROW (select + buttons)
@@ -64,6 +83,8 @@
   transition: border-color 0.15s;
 }
 .control-row select:focus { border-color: var(--accent); }
+.control-row select:focus-visible { outline: 2px solid var(--border-focus); outline-offset: -1px; }
+.control-row select:disabled { opacity: 0.5; cursor: not-allowed; }
 
 /* ═══════════════════════════════
    FEATURE ROW (tabular inputs)
@@ -101,4 +122,7 @@
   width: 100%;
 }
 .feature-row .feature-input:focus { border-color: var(--accent); }
+.feature-row .feature-input:focus-visible { outline: 2px solid var(--border-focus); outline-offset: -1px; }
+.feature-row .feature-input:disabled { opacity: 0.5; cursor: not-allowed; }
+.feature-row .feature-input::placeholder { color: var(--text-muted); opacity: 0.6; }
 .predict-row-btn { flex-shrink: 0; align-self: flex-end; height: 32px; padding: 0 16px; }
