@@ -24,6 +24,21 @@
   text-decoration: none;
   margin-right: auto;
 }
+.ui-navbar-pinned {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 6px 10px;
+  margin-right: auto;
+  border: 1px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.ui-navbar-pinned:hover,
+.ui-navbar-pinned.active {
+  color: var(--accent);
+  border-color: var(--border);
+}
 .ui-navbar-toggle {
   background: none;
   border: 1px solid var(--border);
