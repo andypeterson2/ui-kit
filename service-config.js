@@ -89,6 +89,32 @@
     },
 
     /**
+     * Resolve a backend URL with support for the unified ?backend= param.
+     * Priority: ?serviceName= > ?backend= > localStorage > default
+     * @param {string} name       - Service key (e.g. "nonogram").
+     * @param {string} defaultUrl - Fallback if nothing is configured.
+     * @returns {string} The base URL (no trailing slash).
+     */
+    resolveBackend: function (name, defaultUrl) {
+      // 1. Per-service URL param (?nonogram=host:port)
+      var fromParam = _params.get(name);
+      if (fromParam) {
+        var url = _normalise(fromParam);
+        if (url) return url;
+      }
+      // 2. Unified backend param (?backend=host:port)
+      var backendParam = _params.get("backend");
+      if (backendParam) {
+        var url2 = _normalise(backendParam);
+        if (url2) return url2;
+      }
+      // 3. localStorage
+      if (_stored[name]) return _stored[name];
+      // 4. Default
+      return _normalise(defaultUrl) || "";
+    },
+
+    /**
      * Get all configured services.
      * @returns {Object<string, string>}
      */
