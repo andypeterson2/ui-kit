@@ -409,7 +409,8 @@
     function buildUrl() {
       var h = hostInput.value.trim() || defaultHost;
       var p = parseInt(portInput.value) || defaultPort;
-      return "https://" + h + ":" + p;
+      var protocol = (opts.protocol || "https") + "://";
+      return protocol + h + ":" + p;
     }
 
     function onClick() {
