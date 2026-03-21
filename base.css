@@ -44,6 +44,15 @@ table { border-collapse: collapse; }
 
 .resize-dragging { user-select: none; }
 
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* ── Universal border rule ── */
 h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--border);

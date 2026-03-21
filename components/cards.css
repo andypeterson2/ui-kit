@@ -9,6 +9,15 @@
   flex-direction: column;
   min-height: 0;
   overflow: hidden;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.card:hover {
+  border-color: var(--surface-hl);
+}
+.card.card-interactive { cursor: pointer; }
+.card.card-interactive:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 .card + .card { margin-top: -1px; }
 .card h2 {

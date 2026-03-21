@@ -1,6 +1,11 @@
 /* ═══════════════════════════════
    DROPDOWN
    ═══════════════════════════════ */
+@keyframes dropdown-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .ui-dropdown {
   position: absolute;
   top: calc(100% + 0px);
@@ -11,6 +16,7 @@
   max-height: 320px;
   overflow-y: auto;
   z-index: 50;
+  animation: dropdown-in 0.12s ease;
 }
 .ui-dropdown::-webkit-scrollbar { width: 4px; }
 .ui-dropdown::-webkit-scrollbar-thumb { background: var(--term-scrollbar); }
