@@ -17,7 +17,9 @@
   var THEME_KEY = "sm-theme";
 
   var stored = localStorage.getItem(THEME_KEY);
-  var theme = stored || "light";
+  var theme = stored ||
+    (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark" : "light");
 
   document.documentElement.dataset.theme = theme;
 
@@ -38,4 +40,13 @@
       document.documentElement.dataset.theme = e.newValue;
     }
   });
+
+  // Follow OS theme changes when user has no explicit preference.
+  if (window.matchMedia) {
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
+      if (!localStorage.getItem(THEME_KEY)) {
+        document.documentElement.dataset.theme = e.matches ? "dark" : "light";
+      }
+    });
+  }
 })();
