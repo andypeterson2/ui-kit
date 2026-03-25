@@ -37,7 +37,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  transition: background 0.12s, color 0.12s, border-color 0.12s;
+  transition: background var(--duration-fast), color var(--duration-fast), border-color var(--duration-fast);
 }
 .ui-dropdown-item:hover { background: var(--surface2); color: var(--text); }
 .ui-dropdown-item.active {

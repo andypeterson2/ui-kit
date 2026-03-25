@@ -38,8 +38,8 @@
 }
 
 /* Uniform action button sizing */
-.ui-list-row .btn-icon,
-.ui-list-row .btn-danger {
+.ui-list-row .ui-btn-icon,
+.ui-list-row .ui-btn-danger {
   flex-shrink: 0;
   height: 26px;
   width: 28px;

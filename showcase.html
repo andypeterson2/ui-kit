@@ -350,7 +350,7 @@
   <span class="file">base.css</span>           <span class="desc">Box-sizing reset, body defaults, utilities</span>
   <span class="file">components.css</span>     <span class="desc">Aggregator: imports all 49 component files</span>
   <span class="dir">components/</span>
-    <span class="file">buttons.css</span>      <span class="desc">  .btn, .btn-primary, .btn-secondary, ...</span>
+    <span class="file">buttons.css</span>      <span class="desc">  .btn, .ui-btn-primary, .ui-btn-secondary, ...</span>
     <span class="file">cards.css</span>        <span class="desc">  .card, .card-header</span>
     <span class="file">forms.css</span>        <span class="desc">  .form-row, .control-row, .feature-row</span>
     <span class="file">drawers.css</span>      <span class="desc">  .drawer, .side-handle, .side-panel</span>
@@ -499,29 +499,29 @@
       <div class="example-label">Variants</div>
       <div class="example-render">
         <div class="demo-row">
-          <button class="btn btn-primary">Primary</button>
-          <button class="btn btn-secondary">Secondary</button>
-          <button class="btn btn-danger">Danger</button>
-          <button class="btn btn-icon" title="Icon button" aria-label="Settings" id="btn-gear-demo"></button>
+          <button class="ui-btn ui-btn-primary">Primary</button>
+          <button class="ui-btn ui-btn-secondary">Secondary</button>
+          <button class="ui-btn ui-btn-danger">Danger</button>
+          <button class="ui-btn ui-btn-icon" title="Icon button" aria-label="Settings" id="btn-gear-demo"></button>
         </div>
       </div>
-      <pre class="code"><span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-primary"</span><span class="tag">&gt;</span>Primary<span class="tag">&lt;/button&gt;</span>
-<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-secondary"</span><span class="tag">&gt;</span>Secondary<span class="tag">&lt;/button&gt;</span>
-<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-danger"</span><span class="tag">&gt;</span>Danger<span class="tag">&lt;/button&gt;</span>
-<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-icon"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/button&gt;</span></pre>
+      <pre class="code"><span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-primary"</span><span class="tag">&gt;</span>Primary<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-secondary"</span><span class="tag">&gt;</span>Secondary<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-danger"</span><span class="tag">&gt;</span>Danger<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-icon"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/button&gt;</span></pre>
     </div>
 
     <div class="example">
       <div class="example-label">Disabled &amp; Loading</div>
       <div class="example-render">
         <div class="demo-row">
-          <button class="btn btn-primary" disabled>Disabled</button>
-          <button class="btn btn-secondary" disabled>Disabled</button>
-          <button class="btn btn-primary btn-loading" disabled>Training...</button>
+          <button class="ui-btn ui-btn-primary" disabled>Disabled</button>
+          <button class="ui-btn ui-btn-secondary" disabled>Disabled</button>
+          <button class="ui-btn ui-btn-primary ui-btn-loading" disabled>Training...</button>
         </div>
       </div>
-      <pre class="code"><span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-primary"</span> <span class="attr">disabled</span><span class="tag">&gt;</span>Disabled<span class="tag">&lt;/button&gt;</span>
-<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-primary btn-loading"</span> <span class="attr">disabled</span><span class="tag">&gt;</span>Training...<span class="tag">&lt;/button&gt;</span></pre>
+      <pre class="code"><span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-primary"</span> <span class="attr">disabled</span><span class="tag">&gt;</span>Disabled<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-primary ui-btn-loading"</span> <span class="attr">disabled</span><span class="tag">&gt;</span>Training...<span class="tag">&lt;/button&gt;</span></pre>
     </div>
 
     <div class="example">
@@ -529,7 +529,7 @@
       <div class="example-render">
         <div class="demo-row" id="btn-icon-demo"></div>
       </div>
-      <pre class="code"><span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-primary"</span><span class="tag">&gt;</span>
+      <pre class="code"><span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-primary"</span><span class="tag">&gt;</span>
   <span class="fn">UIKit.ICONS.play</span> + <span class="str">" Train"</span>
 <span class="tag">&lt;/button&gt;</span></pre>
     </div>
@@ -549,7 +549,7 @@
         <div class="card">
           <div class="card-header">
             <h2>Model Configuration</h2>
-            <button class="btn btn-secondary" style="font-size:11px; padding: 4px 10px;">Reset</button>
+            <button class="ui-btn ui-btn-secondary" style="font-size:11px; padding: 4px 10px;">Reset</button>
           </div>
           <p style="font-size:13px; color:var(--text-secondary);">Configure training parameters and hyperparameters for the selected model.</p>
         </div>
@@ -557,7 +557,7 @@
       <pre class="code"><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"card"</span><span class="tag">&gt;</span>
   <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"card-header"</span><span class="tag">&gt;</span>
     <span class="tag">&lt;h2&gt;</span>Model Configuration<span class="tag">&lt;/h2&gt;</span>
-    <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-secondary"</span><span class="tag">&gt;</span>Reset<span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-secondary"</span><span class="tag">&gt;</span>Reset<span class="tag">&lt;/button&gt;</span>
   <span class="tag">&lt;/div&gt;</span>
   <span class="tag">&lt;p&gt;</span>Content here...<span class="tag">&lt;/p&gt;</span>
 <span class="tag">&lt;/div&gt;</span></pre>
@@ -632,14 +632,14 @@
             <option>iris.csv</option>
             <option>wine.csv</option>
           </select>
-          <button class="btn btn-primary" style="padding: 5px 10px; font-size:11px;">Load</button>
-          <button class="btn btn-icon" style="width:28px;height:28px;padding:0;display:flex;align-items:center;justify-content:center;" id="ctrl-refresh-btn" aria-label="Refresh"></button>
+          <button class="ui-btn ui-btn-primary" style="padding: 5px 10px; font-size:11px;">Load</button>
+          <button class="ui-btn ui-btn-icon" style="width:28px;height:28px;padding:0;display:flex;align-items:center;justify-content:center;" id="ctrl-refresh-btn" aria-label="Refresh"></button>
         </div>
       </div>
       <pre class="code"><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"control-row"</span><span class="tag">&gt;</span>
   <span class="tag">&lt;select&gt;</span>...<span class="tag">&lt;/select&gt;</span>
-  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-primary"</span><span class="tag">&gt;</span>Load<span class="tag">&lt;/button&gt;</span>
-  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-icon"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-primary"</span><span class="tag">&gt;</span>Load<span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-icon"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/button&gt;</span>
 <span class="tag">&lt;/div&gt;</span></pre>
     </div>
 
@@ -663,7 +663,7 @@
             Petal Width
             <input class="feature-input" type="number" value="0.2" step="0.1">
           </label>
-          <button class="btn btn-primary predict-row-btn">Predict</button>
+          <button class="ui-btn ui-btn-primary predict-row-btn">Predict</button>
         </div>
       </div>
       <pre class="code"><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"feature-row"</span><span class="tag">&gt;</span>
@@ -672,7 +672,7 @@
     <span class="tag">&lt;input</span> <span class="attr">class</span>=<span class="val">"feature-input"</span> <span class="attr">type</span>=<span class="val">"number"</span> <span class="attr">value</span>=<span class="val">"5.1"</span><span class="tag">&gt;</span>
   <span class="tag">&lt;/div&gt;</span>
   <span class="cm">&lt;!-- more inputs... --&gt;</span>
-  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-primary predict-row-btn"</span><span class="tag">&gt;</span>Predict<span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-primary predict-row-btn"</span><span class="tag">&gt;</span>Predict<span class="tag">&lt;/button&gt;</span>
 <span class="tag">&lt;/div&gt;</span></pre>
     </div>
   </div>
@@ -770,20 +770,20 @@
             <div class="ui-list-row">
               <span class="ui-list-name">rf_iris_v3.pkl</span>
               <span class="ui-list-tag">96.7%</span>
-              <button class="btn btn-icon" id="list-dl-btn" aria-label="Download"></button>
-              <button class="btn btn-danger" id="list-del-btn" aria-label="Delete"></button>
+              <button class="ui-btn ui-btn-icon" id="list-dl-btn" aria-label="Download"></button>
+              <button class="ui-btn ui-btn-danger" id="list-del-btn" aria-label="Delete"></button>
             </div>
             <div class="ui-list-row">
               <span class="ui-list-name">svm_wine_tuned.pkl</span>
               <span class="ui-list-tag">94.2%</span>
-              <button class="btn btn-icon" id="list-dl-btn2" aria-label="Download"></button>
-              <button class="btn btn-danger" id="list-del-btn2" aria-label="Delete"></button>
+              <button class="ui-btn ui-btn-icon" id="list-dl-btn2" aria-label="Download"></button>
+              <button class="ui-btn ui-btn-danger" id="list-del-btn2" aria-label="Delete"></button>
             </div>
             <div class="ui-list-row">
               <span class="ui-list-name">nn_digits_experimental.pkl</span>
               <span class="ui-list-tag">88.1%</span>
-              <button class="btn btn-icon" id="list-dl-btn3" aria-label="Download"></button>
-              <button class="btn btn-danger" id="list-del-btn3" aria-label="Delete"></button>
+              <button class="ui-btn ui-btn-icon" id="list-dl-btn3" aria-label="Download"></button>
+              <button class="ui-btn ui-btn-danger" id="list-del-btn3" aria-label="Delete"></button>
             </div>
           </div>
         </div>
@@ -792,8 +792,8 @@
   <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"ui-list-row"</span><span class="tag">&gt;</span>
     <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"ui-list-name"</span><span class="tag">&gt;</span>rf_iris_v3.pkl<span class="tag">&lt;/span&gt;</span>
     <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"ui-list-tag"</span><span class="tag">&gt;</span>96.7%<span class="tag">&lt;/span&gt;</span>
-    <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-icon"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/button&gt;</span>
-    <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-danger"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-icon"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-danger"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/button&gt;</span>
   <span class="tag">&lt;/div&gt;</span>
 <span class="tag">&lt;/div&gt;</span></pre>
     </div>
@@ -874,7 +874,7 @@ bar.style.width = pct + <span class="str">"%"</span>;</pre>
     <div class="example">
       <div class="example-render">
         <div class="dropdown-demo">
-          <button class="btn btn-secondary" id="dd-trigger" aria-expanded="false">Select dataset</button>
+          <button class="ui-btn ui-btn-secondary" id="dd-trigger" aria-expanded="false">Select dataset</button>
           <div class="ui-dropdown hidden" id="dd-menu">
             <button class="ui-dropdown-item active">iris.csv</button>
             <button class="ui-dropdown-item">wine.csv</button>
@@ -884,7 +884,7 @@ bar.style.width = pct + <span class="str">"%"</span>;</pre>
         </div>
       </div>
       <pre class="code"><span class="tag">&lt;div</span> <span class="attr">style</span>=<span class="val">"position:relative"</span><span class="tag">&gt;</span>
-  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-secondary"</span> <span class="attr">id</span>=<span class="val">"trigger"</span><span class="tag">&gt;</span>Select dataset<span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-secondary"</span> <span class="attr">id</span>=<span class="val">"trigger"</span><span class="tag">&gt;</span>Select dataset<span class="tag">&lt;/button&gt;</span>
   <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"ui-dropdown hidden"</span> <span class="attr">id</span>=<span class="val">"menu"</span><span class="tag">&gt;</span>
     <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"ui-dropdown-item active"</span><span class="tag">&gt;</span>iris.csv<span class="tag">&lt;/button&gt;</span>
     <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"ui-dropdown-item"</span><span class="tag">&gt;</span>wine.csv<span class="tag">&lt;/button&gt;</span>
@@ -970,12 +970,12 @@ bar.style.width = pct + <span class="str">"%"</span>;</pre>
           <div class="modal">
             <div class="modal-header">
               <span class="modal-title">Confirm Delete</span>
-              <button class="btn btn-icon" style="width:24px;height:24px;padding:0;display:flex;align-items:center;justify-content:center;" id="modal-close-btn" aria-label="Close"></button>
+              <button class="ui-btn ui-btn-icon" style="width:24px;height:24px;padding:0;display:flex;align-items:center;justify-content:center;" id="modal-close-btn" aria-label="Close"></button>
             </div>
             <p style="font-size:13px;color:var(--text-secondary);line-height:1.5;">Are you sure you want to delete <strong style="color:var(--text)">rf_iris_v3.pkl</strong>? This action cannot be undone.</p>
             <div class="modal-footer">
-              <button class="btn btn-secondary">Cancel</button>
-              <button class="btn btn-danger">Delete</button>
+              <button class="ui-btn ui-btn-secondary">Cancel</button>
+              <button class="ui-btn ui-btn-danger">Delete</button>
             </div>
           </div>
         </div>
@@ -984,12 +984,12 @@ bar.style.width = pct + <span class="str">"%"</span>;</pre>
   <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"modal"</span><span class="tag">&gt;</span>
     <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"modal-header"</span><span class="tag">&gt;</span>
       <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"modal-title"</span><span class="tag">&gt;</span>Confirm Delete<span class="tag">&lt;/span&gt;</span>
-      <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-icon"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/button&gt;</span>
+      <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-icon"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/button&gt;</span>
     <span class="tag">&lt;/div&gt;</span>
     <span class="tag">&lt;p&gt;</span>Are you sure?<span class="tag">&lt;/p&gt;</span>
     <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"modal-footer"</span><span class="tag">&gt;</span>
-      <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-secondary"</span><span class="tag">&gt;</span>Cancel<span class="tag">&lt;/button&gt;</span>
-      <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-danger"</span><span class="tag">&gt;</span>Delete<span class="tag">&lt;/button&gt;</span>
+      <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-secondary"</span><span class="tag">&gt;</span>Cancel<span class="tag">&lt;/button&gt;</span>
+      <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-danger"</span><span class="tag">&gt;</span>Delete<span class="tag">&lt;/button&gt;</span>
     <span class="tag">&lt;/div&gt;</span>
   <span class="tag">&lt;/div&gt;</span>
 <span class="tag">&lt;/div&gt;</span>
@@ -1142,10 +1142,10 @@ el.innerHTML = <span class="fn">UIKit.ICONS.spinner</span>; <span class="cm">// 
       <div class="example-label">Trigger demos</div>
       <div class="example-render">
         <div class="demo-row" style="gap:6px; flex-wrap:wrap;">
-          <button class="btn btn-secondary btn-sm" onclick="UIKit.toast('Item saved successfully', {type:'success'})">Success toast</button>
-          <button class="btn btn-secondary btn-sm" onclick="UIKit.toast('Network latency detected', {type:'warn'})">Warning toast</button>
-          <button class="btn btn-secondary btn-sm" onclick="UIKit.toast('Connection lost', {type:'error'})">Error toast</button>
-          <button class="btn btn-secondary btn-sm" onclick="UIKit.toast('Neutral notification')">Default toast</button>
+          <button class="ui-btn ui-btn-secondary ui-btn-sm" onclick="UIKit.toast('Item saved successfully', {type:'success'})">Success toast</button>
+          <button class="ui-btn ui-btn-secondary ui-btn-sm" onclick="UIKit.toast('Network latency detected', {type:'warn'})">Warning toast</button>
+          <button class="ui-btn ui-btn-secondary ui-btn-sm" onclick="UIKit.toast('Connection lost', {type:'error'})">Error toast</button>
+          <button class="ui-btn ui-btn-secondary ui-btn-sm" onclick="UIKit.toast('Neutral notification')">Default toast</button>
         </div>
       </div>
       <pre class="code"><span class="fn">UIKit.toast</span>(<span class="str">"Saved!"</span>, { <span class="attr">type</span>: <span class="str">"success"</span> });
@@ -1302,7 +1302,7 @@ el.innerHTML = <span class="fn">UIKit.ICONS.spinner</span>; <span class="cm">// 
       <div class="example-label">Hover for tooltip</div>
       <div class="example-render">
         <div class="demo-row" style="gap:12px; padding:20px 0 4px;">
-          <button class="btn btn-secondary btn-sm" data-tooltip="Save your work">Hover me</button>
+          <button class="ui-btn ui-btn-secondary ui-btn-sm" data-tooltip="Save your work">Hover me</button>
           <span class="ui-badge ui-badge-accent" data-tooltip="3 new notifications" style="cursor:default;">Notifications</span>
           <i class="fa-solid fa-circle-info" data-tooltip="More information available" style="color:var(--text-muted); cursor:help;"></i>
         </div>
@@ -1373,14 +1373,14 @@ el.innerHTML = <span class="fn">UIKit.ICONS.spinner</span>; <span class="cm">// 
       <div class="example-label">Size comparison</div>
       <div class="example-render">
         <div class="demo-row" style="gap:6px; align-items:center;">
-          <button class="btn btn-primary">Default</button>
-          <button class="btn btn-primary btn-sm">Small</button>
-          <button class="btn btn-primary btn-xs">Extra Small</button>
+          <button class="ui-btn ui-btn-primary">Default</button>
+          <button class="ui-btn ui-btn-primary ui-btn-sm">Small</button>
+          <button class="ui-btn ui-btn-primary ui-btn-xs">Extra Small</button>
         </div>
       </div>
-      <pre class="code"><span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-primary"</span><span class="tag">&gt;</span>Default<span class="tag">&lt;/button&gt;</span>
-<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-primary btn-sm"</span><span class="tag">&gt;</span>Small<span class="tag">&lt;/button&gt;</span>
-<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-primary btn-xs"</span><span class="tag">&gt;</span>Extra Small<span class="tag">&lt;/button&gt;</span></pre>
+      <pre class="code"><span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-primary"</span><span class="tag">&gt;</span>Default<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-primary ui-btn-sm"</span><span class="tag">&gt;</span>Small<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-primary ui-btn-xs"</span><span class="tag">&gt;</span>Extra Small<span class="tag">&lt;/button&gt;</span></pre>
     </div>
   </div>
 
@@ -1501,14 +1501,14 @@ el.innerHTML = <span class="fn">UIKit.ICONS.spinner</span>; <span class="cm">// 
       <div class="example-label">Segmented control</div>
       <div class="example-render">
         <div class="ui-btn-group">
-          <button class="btn btn-secondary active">Grid</button>
-          <button class="btn btn-secondary">List</button>
-          <button class="btn btn-secondary">Map</button>
+          <button class="ui-btn ui-btn-secondary active">Grid</button>
+          <button class="ui-btn ui-btn-secondary">List</button>
+          <button class="ui-btn ui-btn-secondary">Map</button>
         </div>
       </div>
       <pre class="code"><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"ui-btn-group"</span><span class="tag">&gt;</span>
-  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-secondary active"</span><span class="tag">&gt;</span>Grid<span class="tag">&lt;/button&gt;</span>
-  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-secondary"</span><span class="tag">&gt;</span>List<span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-secondary active"</span><span class="tag">&gt;</span>Grid<span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn ui-btn-secondary"</span><span class="tag">&gt;</span>List<span class="tag">&lt;/button&gt;</span>
 <span class="tag">&lt;/div&gt;</span></pre>
     </div>
   </div>
@@ -1626,13 +1626,13 @@ UIKit.toast("Hello!", { type: "success" });</pre>
       <div class="example-render" style="padding:0;">
         <div class="ui-toolbar ui-toolbar-gap">
           <div class="ui-toolbar-group">
-            <button class="btn btn-secondary btn-xs" aria-label="Bold"><i class="fa-solid fa-bold"></i></button>
-            <button class="btn btn-secondary btn-xs" aria-label="Italic"><i class="fa-solid fa-italic"></i></button>
+            <button class="ui-btn ui-btn-secondary ui-btn-xs" aria-label="Bold"><i class="fa-solid fa-bold"></i></button>
+            <button class="ui-btn ui-btn-secondary ui-btn-xs" aria-label="Italic"><i class="fa-solid fa-italic"></i></button>
           </div>
           <div class="ui-toolbar-separator"></div>
           <div class="ui-toolbar-group">
-            <button class="btn btn-secondary btn-xs" aria-label="Align left"><i class="fa-solid fa-align-left"></i></button>
-            <button class="btn btn-secondary btn-xs" aria-label="Align center"><i class="fa-solid fa-align-center"></i></button>
+            <button class="ui-btn ui-btn-secondary ui-btn-xs" aria-label="Align left"><i class="fa-solid fa-align-left"></i></button>
+            <button class="ui-btn ui-btn-secondary ui-btn-xs" aria-label="Align center"><i class="fa-solid fa-align-center"></i></button>
           </div>
           <span class="ui-toolbar-spacer"></span>
           <span class="ui-toolbar-label">Draft</span>
@@ -2161,16 +2161,16 @@ UIKit.toast("Hello!", { type: "success" });</pre>
   // ── Button icon demos ──
   var btnDemo = document.getElementById("btn-icon-demo");
   var b1 = document.createElement("button");
-  b1.className = "btn btn-primary";
+  b1.className = "btn ui-btn-primary";
   b1.innerHTML = UIKit.ICONS.play + " Train";
   var b2 = document.createElement("button");
-  b2.className = "btn btn-secondary";
+  b2.className = "btn ui-btn-secondary";
   b2.innerHTML = UIKit.ICONS.save + " Save";
   var b3 = document.createElement("button");
-  b3.className = "btn btn-danger";
+  b3.className = "btn ui-btn-danger";
   b3.innerHTML = UIKit.ICONS.trash + " Delete";
   var b4 = document.createElement("button");
-  b4.className = "btn btn-primary btn-loading";
+  b4.className = "btn ui-btn-primary ui-btn-loading";
   b4.disabled = true;
   b4.innerHTML = UIKit.ICONS.spinner + " Training...";
   btnDemo.appendChild(b1);

@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UI-KIT — Component Reference</title>
+  <script src="theme-bootstrap.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous">
   <link rel="stylesheet" href="ui-kit.css">
   <style>
     /* Demo-specific overrides so sections are visible in a scrolling page */
@@ -118,17 +120,17 @@
     <div class="demo-section">
       <h2>Buttons</h2>
       <div class="demo-row">
-        <button class="btn btn-primary">Primary</button>
-        <button class="btn btn-secondary">Secondary</button>
-        <button class="btn btn-danger">Danger</button>
-        <button class="btn btn-icon" title="Icon button"></button>
+        <button class="ui-btn ui-btn-primary">Primary</button>
+        <button class="ui-btn ui-btn-secondary">Secondary</button>
+        <button class="ui-btn ui-btn-danger">Danger</button>
+        <button class="ui-btn ui-btn-icon" title="Icon button"></button>
       </div>
       <div class="demo-row">
-        <button class="btn btn-primary" disabled>Disabled</button>
-        <button class="btn btn-primary btn-loading">Loading</button>
+        <button class="ui-btn ui-btn-primary" disabled>Disabled</button>
+        <button class="ui-btn ui-btn-primary ui-btn-loading">Loading</button>
       </div>
       <script>
-        document.querySelector('.btn-icon[title="Icon button"]').innerHTML = UIKit.ICONS.refresh;
+        document.querySelector('.ui-btn-icon[title="Icon button"]').innerHTML = UIKit.ICONS.refresh;
       </script>
     </div>
 
@@ -141,7 +143,7 @@
         <div class="card" style="width: 280px;">
           <div class="card-header">
             <h2>Card Title</h2>
-            <button class="btn btn-primary">Action</button>
+            <button class="ui-btn ui-btn-primary">Action</button>
           </div>
           <p style="font-size: 13px; color: var(--text-muted);">Card content goes here.</p>
         </div>
@@ -161,17 +163,17 @@
         <div class="modal" style="position: relative; margin: 0 auto;">
           <div class="modal-header">
             <span class="modal-title">Confirm Action</span>
-            <button class="btn btn-icon" style="width: 28px; height: 28px; padding: 0; display: flex; align-items: center; justify-content: center;"></button>
+            <button class="ui-btn ui-btn-icon" style="width: 28px; height: 28px; padding: 0; display: flex; align-items: center; justify-content: center;"></button>
           </div>
           <p style="font-size: 13px; color: var(--text-secondary);">Are you sure you want to proceed?</p>
           <div class="modal-footer">
-            <button class="btn btn-secondary">Cancel</button>
-            <button class="btn btn-primary">Confirm</button>
+            <button class="ui-btn ui-btn-secondary">Cancel</button>
+            <button class="ui-btn ui-btn-primary">Confirm</button>
           </div>
         </div>
       </div>
       <script>
-        document.querySelector('.modal .btn-icon').innerHTML = UIKit.ICONS.close;
+        document.querySelector('.modal .ui-btn-icon').innerHTML = UIKit.ICONS.close;
       </script>
     </div>
 
@@ -214,8 +216,8 @@
             <option>Item A</option>
             <option>Item B</option>
           </select>
-          <button class="btn btn-secondary">Import</button>
-          <button class="btn btn-icon" title="Refresh"></button>
+          <button class="ui-btn ui-btn-secondary">Import</button>
+          <button class="ui-btn ui-btn-icon" title="Refresh"></button>
         </div>
       </div>
     </div>
@@ -230,22 +232,22 @@
           <div class="ui-list-row">
             <span class="ui-list-name">Linear</span>
             <span class="ui-list-tag">Linear</span>
-            <button class="btn btn-icon" title="Save"></button>
-            <button class="btn btn-danger" aria-label="Remove"></button>
+            <button class="ui-btn ui-btn-icon" title="Save"></button>
+            <button class="ui-btn ui-btn-danger" aria-label="Remove"></button>
           </div>
           <div class="ui-list-row">
             <span class="ui-list-name">CNN 2</span>
             <span class="ui-list-tag">CNN</span>
-            <button class="btn btn-icon" title="Save"></button>
-            <button class="btn btn-danger" aria-label="Remove"></button>
+            <button class="ui-btn ui-btn-icon" title="Save"></button>
+            <button class="ui-btn ui-btn-danger" aria-label="Remove"></button>
           </div>
         </div>
         <p class="ui-list-empty" style="display: none;">No items loaded</p>
       </div>
       <script>
         (function () {
-          document.querySelectorAll('.ui-list-row .btn-icon[title="Save"]').forEach(function (b) { b.innerHTML = UIKit.ICONS.save; });
-          document.querySelectorAll('.ui-list-row .btn-danger').forEach(function (b) { b.innerHTML = UIKit.ICONS.close; });
+          document.querySelectorAll('.ui-list-row .ui-btn-icon[title="Save"]').forEach(function (b) { b.innerHTML = UIKit.ICONS.save; });
+          document.querySelectorAll('.ui-list-row .ui-btn-danger').forEach(function (b) { b.innerHTML = UIKit.ICONS.close; });
         })();
       </script>
     </div>
@@ -328,10 +330,10 @@
         <div class="log-terminal" id="demo-log" role="log" aria-live="polite"></div>
       </div>
       <div class="demo-row" style="margin-top: 8px;">
-        <button class="btn btn-secondary" id="log-info-btn">Add Info</button>
-        <button class="btn btn-secondary" id="log-ok-btn">Add OK</button>
-        <button class="btn btn-secondary" id="log-warn-btn">Add Warn</button>
-        <button class="btn btn-secondary" id="log-err-btn">Add Error</button>
+        <button class="ui-btn ui-btn-secondary" id="log-info-btn">Add Info</button>
+        <button class="ui-btn ui-btn-secondary" id="log-ok-btn">Add OK</button>
+        <button class="ui-btn ui-btn-secondary" id="log-warn-btn">Add Warn</button>
+        <button class="ui-btn ui-btn-secondary" id="log-err-btn">Add Error</button>
       </div>
       <script>
         (function () {
@@ -367,7 +369,7 @@
           <div class="top-bar">
             <span class="current-dataset">Demo App</span>
             <div class="top-bar-right">
-              <button id="demo-menu-btn" class="btn btn-icon hamburger-btn" aria-expanded="false" title="Menu"></button>
+              <button id="demo-menu-btn" class="ui-btn ui-btn-icon hamburger-btn" aria-expanded="false" title="Menu"></button>
               <div id="demo-menu" class="ui-dropdown hidden">
                 <div class="side-panel-header"><span class="side-panel-title">Options</span></div>
                 <div id="demo-menu-list">
@@ -432,7 +434,7 @@
           <div class="app-topbar">
             <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--text-muted);">App Name</span>
             <span style="flex: 1;"></span>
-            <button class="btn btn-secondary" style="font-size: 11px; padding: 3px 10px;">Action</button>
+            <button class="ui-btn ui-btn-secondary" style="font-size: 11px; padding: 3px 10px;">Action</button>
           </div>
           <div class="app-body">
             <div class="app-sidebar" style="padding: 12px;">
@@ -461,7 +463,7 @@
           <label class="feature-label"><span>Length</span><input type="number" step="0.01" class="feature-input" value="5.1"></label>
           <label class="feature-label"><span>Width</span><input type="number" step="0.01" class="feature-input" value="3.5"></label>
           <label class="feature-label"><span>Height</span><input type="number" step="0.01" class="feature-input" value="1.4"></label>
-          <button class="btn btn-primary predict-row-btn">Predict</button>
+          <button class="ui-btn ui-btn-primary predict-row-btn">Predict</button>
         </div>
       </div>
     </div>

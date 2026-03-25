@@ -28,7 +28,7 @@ describe('Performance: bundle size and load time', () => {
       });
     });
 
-    test('total component CSS is under 50KB', () => {
+    test('total component CSS is under 80KB', () => {
       const files = fs.readdirSync(componentsDir).filter((f) => f.endsWith('.css'));
       const totalSize = files.reduce((sum, f) => {
         return sum + fs.statSync(path.join(componentsDir, f)).size;
@@ -38,7 +38,7 @@ describe('Performance: bundle size and load time', () => {
   });
 
   describe('JavaScript bundle sizes', () => {
-    test('ui-kit.js is under 15KB', () => {
+    test('ui-kit.js is under 25KB', () => {
       const stat = fs.statSync(path.join(rootDir, 'ui-kit.js'));
       expect(stat.size).toBeLessThan(25 * 1024);
     });

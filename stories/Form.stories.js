@@ -32,7 +32,7 @@ export const Toggle = {
   render: () => {
     const wrap = document.createElement('div');
     wrap.style.cssText = 'display:flex;align-items:center;gap:10px';
-    wrap.innerHTML = '<label class="ui-toggle"><input type="checkbox" checked><span class="ui-toggle-track"><span class="ui-toggle-thumb"></span></span></label><span style="font-size:13px;color:var(--text-secondary)">Enable feature</span>';
+    wrap.innerHTML = '<label class="ui-toggle"><input type="checkbox" checked><span class="ui-toggle-track"><span class="ui-toggle-knob"></span></span></label><span style="font-size:13px;color:var(--text-secondary)">Enable feature</span>';
     return wrap;
   },
 };

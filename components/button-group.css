@@ -8,12 +8,12 @@
   display: inline-flex;
   gap: 0;
 }
-.ui-btn-group .btn {
+.ui-btn-group .ui-btn {
   border-radius: 0;
   margin-left: -1px;
 }
-.ui-btn-group .btn:first-child { margin-left: 0; }
-.ui-btn-group .btn.active {
+.ui-btn-group .ui-btn:first-child { margin-left: 0; }
+.ui-btn-group .ui-btn.active {
   background: var(--accent);
   color: var(--text-inverse);
   border-color: var(--accent);

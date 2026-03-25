@@ -4,6 +4,9 @@
      @import url("ui-kit/ui-kit-core.css");
      @import url("ui-kit/components/buttons.css");
      @import url("ui-kit/components/cards.css");
+
+   Requires system.css loaded before this file:
+     <link rel="stylesheet" href="https://unpkg.com/@sakun/system.css" />
    ═══════════════════════════════════════════════════════════════════════════ */
 
 @import url("tokens.css");

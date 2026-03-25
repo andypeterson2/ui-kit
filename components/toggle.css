@@ -21,7 +21,7 @@
   top: 0; left: 0; right: 0; bottom: 0;
   background: var(--surface2);
   border: 1px solid var(--border);
-  transition: background 0.2s, border-color 0.2s;
+  transition: background var(--duration-normal), border-color var(--duration-normal);
 }
 .ui-toggle-knob {
   position: absolute;
@@ -30,7 +30,7 @@
   width: 12px;
   height: 12px;
   background: var(--text-muted);
-  transition: transform 0.2s, background 0.2s;
+  transition: transform var(--duration-normal), background var(--duration-normal);
 }
 .ui-toggle input:checked ~ .ui-toggle-track {
   background: var(--accent);

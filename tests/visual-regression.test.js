@@ -26,8 +26,8 @@ beforeEach(() => {
 
 describe('Visual regression: component structure baselines', () => {
   test('button renders with expected DOM structure', () => {
-    document.body.innerHTML = '<button class="btn btn-primary">Click</button>';
-    const btn = document.querySelector('.btn');
+    document.body.innerHTML = '<button class="btn ui-btn-primary">Click</button>';
+    const btn = document.querySelector('.ui-btn');
     expect(btn).not.toBeNull();
     expect(btn.tagName).toBe('BUTTON');
     expect(btn.classList.contains('btn-primary')).toBe(true);
@@ -75,12 +75,12 @@ describe('Visual regression: component structure baselines', () => {
 
   test('toast notification has correct structure', () => {
     document.body.innerHTML = `
-      <div class="toast toast-success">
+      <div class="ui-toast ui-toast-success">
         <span class="toast-message">Saved</span>
-        <button class="toast-close">&times;</button>
+        <button class="ui-toast-dismiss">&times;</button>
       </div>`;
-    const toast = document.querySelector('.toast');
-    expect(toast.classList.contains('toast-success')).toBe(true);
+    const toast = document.querySelector('.ui-toast');
+    expect(toast.classList.contains('ui-toast-success')).toBe(true);
     expect(toast.querySelector('.toast-message').textContent).toBe('Saved');
   });
 

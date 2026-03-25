@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════════════════
    UI-KIT — Base Styles
-   Reset, body defaults, gapless border rules, and utility classes.
+   Minimal reset and utilities. Layout and chrome are handled by system.css.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /* ── Reset ── */
@@ -11,27 +11,8 @@
   border-radius: 0;  /* Zero radius everywhere */
 }
 
-/* ── Body ── */
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font);
-  font-size: 14px;
-  height: 100dvh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 /* ── Tables always collapse borders ── */
 table { border-collapse: collapse; }
-
-/* ── Custom scrollbars ── */
-::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: var(--scrollbar-track, transparent); }
-::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb, var(--surface-muted)); }
 
 /* ── Utilities ── */
 .hidden { display: none !important; }
@@ -51,10 +32,4 @@ table { border-collapse: collapse; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-/* ── Universal border rule ── */
-h1, h2, h3, h4, h5, h6 {
-  border: 1px solid var(--border);
-  padding: 6px 10px;
 }

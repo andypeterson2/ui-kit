@@ -5,7 +5,7 @@
    ═══════════════════════════════ */
 .ui-badge {
   display: inline-block;
-  font-size: 10px;
+  font-size: var(--text-xs);
   font-weight: 600;
   padding: 2px 6px;
   border: 1px solid var(--border);

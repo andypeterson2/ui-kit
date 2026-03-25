@@ -11,7 +11,7 @@
 .ui-tab {
   flex: 1;
   padding: 6px 12px;
-  font-size: 11px;
+  font-size: var(--text-sm);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -21,7 +21,7 @@
   color: var(--text-muted);
   border: none;
   border-right: 1px solid var(--border);
-  transition: background 0.15s, color 0.15s;
+  transition: background var(--duration-fast), color var(--duration-fast);
   user-select: none;
 }
 .ui-tab:last-child { border-right: none; }

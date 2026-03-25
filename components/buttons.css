@@ -1,56 +1,58 @@
 /* ═══════════════════════════════
    BUTTONS
+   Namespaced as .ui-btn to avoid
+   collision with system.css .btn.
    ═══════════════════════════════ */
-.btn {
+.ui-btn {
   border: 1px solid var(--border);
   cursor: pointer;
   font-size: 12px;
   font-weight: 600;
   padding: 6px 14px;
-  transition: background 0.15s, border-color 0.15s, color 0.15s, opacity 0.15s, transform 0.1s;
+  transition: background var(--duration-fast), border-color var(--duration-fast), color var(--duration-fast), opacity var(--duration-fast), transform var(--duration-fast);
   white-space: nowrap;
   font-family: var(--font);
 }
-.btn:disabled { opacity: 0.40; cursor: not-allowed; }
-.btn:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 1px; }
-.btn:active:not(:disabled) { opacity: 0.75; transform: scale(0.97); }
+.ui-btn:disabled { opacity: 0.40; cursor: not-allowed; }
+.ui-btn:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 1px; }
+.ui-btn:active:not(:disabled) { opacity: 0.75; transform: scale(0.97); }
 
-.btn-primary { background: var(--accent); color: var(--text-inverse); }
-.btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
+.ui-btn-primary { background: var(--accent); color: var(--text-inverse); }
+.ui-btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
 
-.btn-secondary {
+.ui-btn-secondary {
   background: var(--surface2);
   color: var(--text);
   border: 1px solid var(--border);
 }
-.btn-secondary:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.ui-btn-secondary:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
 
-.btn-danger {
+.ui-btn-danger {
   background: transparent;
   color: var(--danger);
   border: 1px solid var(--danger);
 }
-.btn-danger:hover:not(:disabled) { background: var(--danger); color: var(--text-inverse); }
+.ui-btn-danger:hover:not(:disabled) { background: var(--danger); color: var(--text-inverse); }
 
-.btn-icon {
+.ui-btn-icon {
   background: transparent;
   color: var(--text-muted);
   border: 1px solid var(--border);
-  transition: border-color 0.15s, color 0.15s;
+  transition: border-color var(--duration-fast), color var(--duration-fast);
 }
-.btn-icon:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.ui-btn-icon:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
 
 /* ── Button loading pulse ── */
-@keyframes btn-pulse {
+@keyframes ui-btn-pulse {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.5; }
 }
-.btn-loading {
-  animation: btn-pulse 1.1s ease-in-out infinite;
+.ui-btn-loading {
+  animation: ui-btn-pulse 1.1s ease-in-out infinite;
   cursor: wait;
 }
 
 /* ── Size variants ── */
-.btn-sm { font-size: 11px; padding: 4px 10px; }
-.btn-xs { font-size: 10px; padding: 2px 8px; }
-.btn-lg { font-size: 14px; padding: 8px 20px; }
+.ui-btn-sm { font-size: var(--text-sm); padding: 4px 10px; }
+.ui-btn-xs { font-size: var(--text-xs); padding: 2px 8px; }
+.ui-btn-lg { font-size: 14px; padding: 8px 20px; }

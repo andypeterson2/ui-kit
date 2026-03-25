@@ -132,7 +132,49 @@
       }
     }
 
+    function onKeydown(e) {
+      var isOpen = !menuEl.classList.contains("hidden");
+      if (!isOpen && (e.key === "ArrowDown" || e.key === "ArrowUp")) {
+        e.preventDefault();
+        open();
+        var first = menuEl.querySelector(".ui-dropdown-item");
+        if (first) first.focus();
+        return;
+      }
+      if (!isOpen) return;
+
+      var items = Array.prototype.slice.call(menuEl.querySelectorAll(".ui-dropdown-item"));
+      if (items.length === 0) return;
+      var idx = items.indexOf(document.activeElement);
+
+      if (e.key === "Escape") {
+        e.preventDefault();
+        close();
+        triggerEl.focus();
+      } else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        var next = idx < items.length - 1 ? idx + 1 : 0;
+        items[next].focus();
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        var prev = idx > 0 ? idx - 1 : items.length - 1;
+        items[prev].focus();
+      } else if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        if (idx !== -1) items[idx].click();
+        close();
+        triggerEl.focus();
+      }
+    }
+
+    // Set ARIA roles for accessibility
+    menuEl.setAttribute("role", "listbox");
+    var items = Array.prototype.slice.call(menuEl.querySelectorAll(".ui-dropdown-item"));
+    items.forEach(function (item) { item.setAttribute("role", "option"); });
+
     triggerEl.addEventListener("click", onTrigger);
+    triggerEl.addEventListener("keydown", onKeydown);
+    menuEl.addEventListener("keydown", onKeydown);
     document.addEventListener("click", onOutside);
 
     return {
@@ -140,9 +182,37 @@
       close: close,
       destroy: function () {
         triggerEl.removeEventListener("click", onTrigger);
+        triggerEl.removeEventListener("keydown", onKeydown);
+        menuEl.removeEventListener("keydown", onKeydown);
         document.removeEventListener("click", onOutside);
       }
     };
+  };
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // MODAL (focus trap)
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  /**
+   * Initialise a modal with a focus trap so Tab/Shift+Tab cycle within it.
+   *
+   * @param {HTMLElement} el - The modal container element.
+   */
+  UIKit.initModal = function (el) {
+    var focusable = el.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Tab') {
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
   };
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -150,6 +220,7 @@
   // ═══════════════════════════════════════════════════════════════════════════
 
   var _escapeCallbacks = [];
+  var _escapeListenerAttached = false;
 
   /**
    * Register a callback that fires when the Escape key is pressed.
@@ -158,13 +229,14 @@
    * @returns {function(): void} Unsubscribe function.
    */
   UIKit.onEscape = function (callback) {
-    if (_escapeCallbacks.length === 0) {
+    if (!_escapeListenerAttached) {
       document.addEventListener("keydown", function (e) {
         if (e.key !== "Escape") return;
         for (var i = 0; i < _escapeCallbacks.length; i++) {
           _escapeCallbacks[i]();
         }
       });
+      _escapeListenerAttached = true;
     }
     _escapeCallbacks.push(callback);
     return function () {
@@ -283,6 +355,8 @@
     if (!container) {
       container = document.createElement("div");
       container.className = "ui-toast-container";
+      container.setAttribute("role", "status");
+      container.setAttribute("aria-live", "polite");
       document.body.appendChild(container);
     }
 
@@ -409,7 +483,7 @@
     function buildUrl() {
       var h = hostInput.value.trim() || defaultHost;
       var p = parseInt(portInput.value) || defaultPort;
-      var protocol = (opts.protocol || "https") + "://";
+      var protocol = (opts.protocol || "http") + "://";
       return protocol + h + ":" + p;
     }
 

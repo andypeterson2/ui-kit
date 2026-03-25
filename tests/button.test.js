@@ -22,18 +22,18 @@ beforeEach(() => {
 describe('Button component variants and states', () => {
   test('btn base class exists and is applicable', () => {
     const btn = document.createElement('button');
-    btn.className = 'btn';
+    btn.className = 'ui-btn';
     document.body.appendChild(btn);
-    expect(btn.classList.contains('btn')).toBe(true);
+    expect(btn.classList.contains('ui-btn')).toBe(true);
   });
 
   test.each(['btn-primary', 'btn-secondary', 'btn-danger', 'btn-icon'])(
     'variant %s can be applied alongside btn',
     (variant) => {
       const btn = document.createElement('button');
-      btn.className = `btn ${variant}`;
+      btn.className = `ui-btn ${variant}`;
       document.body.appendChild(btn);
-      expect(btn.classList.contains('btn')).toBe(true);
+      expect(btn.classList.contains('ui-btn')).toBe(true);
       expect(btn.classList.contains(variant)).toBe(true);
     }
   );
@@ -42,7 +42,7 @@ describe('Button component variants and states', () => {
     'size variant %s can be applied',
     (size) => {
       const btn = document.createElement('button');
-      btn.className = `btn btn-primary ${size}`;
+      btn.className = `ui-btn ui-btn-primary ${size}`;
       document.body.appendChild(btn);
       expect(btn.classList.contains(size)).toBe(true);
     }
@@ -50,16 +50,16 @@ describe('Button component variants and states', () => {
 
   test('disabled button has disabled attribute', () => {
     const btn = document.createElement('button');
-    btn.className = 'btn btn-primary';
+    btn.className = 'btn ui-btn-primary';
     btn.disabled = true;
     document.body.appendChild(btn);
     expect(btn.disabled).toBe(true);
     expect(btn.matches(':disabled')).toBe(true);
   });
 
-  test('loading state adds btn-loading class', () => {
+  test('loading state adds ui-btn-loading class', () => {
     const btn = document.createElement('button');
-    btn.className = 'btn btn-primary btn-loading';
+    btn.className = 'btn ui-btn-primary ui-btn-loading';
     document.body.appendChild(btn);
     expect(btn.classList.contains('btn-loading')).toBe(true);
   });
@@ -74,15 +74,15 @@ describe('Button component variants and states', () => {
   });
 
   test('hover state is defined for primary variant', () => {
-    expect(CSS).toContain('.btn-primary:hover:not(:disabled)');
+    expect(CSS).toContain('.ui-btn-primary:hover:not(:disabled)');
   });
 
   test('hover state is defined for secondary variant', () => {
-    expect(CSS).toContain('.btn-secondary:hover:not(:disabled)');
+    expect(CSS).toContain('.ui-btn-secondary:hover:not(:disabled)');
   });
 
   test('hover state is defined for danger variant', () => {
-    expect(CSS).toContain('.btn-danger:hover:not(:disabled)');
+    expect(CSS).toContain('.ui-btn-danger:hover:not(:disabled)');
   });
 
   test('transition property is set on base btn', () => {
@@ -95,9 +95,9 @@ describe('Button component variants and states', () => {
 
   test('combined variant and size classes work together', () => {
     const btn = document.createElement('button');
-    btn.className = 'btn btn-danger btn-lg btn-loading';
+    btn.className = 'btn ui-btn-danger ui-btn-lg ui-btn-loading';
     document.body.appendChild(btn);
-    expect(btn.classList.contains('btn')).toBe(true);
+    expect(btn.classList.contains('ui-btn')).toBe(true);
     expect(btn.classList.contains('btn-danger')).toBe(true);
     expect(btn.classList.contains('btn-lg')).toBe(true);
     expect(btn.classList.contains('btn-loading')).toBe(true);

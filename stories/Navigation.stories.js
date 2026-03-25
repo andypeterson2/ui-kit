@@ -8,14 +8,12 @@ export const Navbar = {
     const nav = document.createElement('nav');
     nav.className = 'ui-navbar';
     nav.innerHTML = `
-      <div class="ui-navbar-left">
-        <a class="ui-navbar-brand" href="#">UI Kit</a>
-      </div>
-      <div class="ui-navbar-right">
-        <a class="ui-navbar-link active" href="#">Home</a>
-        <a class="ui-navbar-link" href="#">Projects</a>
-        <a class="ui-navbar-link" href="#">About</a>
-        <a class="ui-navbar-link" href="#">Contact</a>
+      <a class="ui-navbar-brand" href="#">UI Kit</a>
+      <div class="ui-navbar-menu">
+        <a class="active" href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
       </div>
     `;
     return nav;
