@@ -35,7 +35,7 @@ describe('Token naming convention consistency', () => {
 
   test('accent tokens follow naming pattern', () => {
     const accentTokens = uniqueTokens.filter((t) => t.startsWith('accent'));
-    expect(accentTokens.length).toBeGreaterThanOrEqual(4);
+    expect(accentTokens.length).toBeGreaterThanOrEqual(2);
   });
 
   test('syntax tokens follow naming pattern', () => {

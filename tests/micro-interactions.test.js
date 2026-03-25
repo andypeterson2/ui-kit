@@ -16,8 +16,8 @@ describe('Micro-interaction animations', () => {
       expect(tokensCSS).toContain('--duration-normal');
     });
 
-    test('theme transition is smooth', () => {
-      expect(tokensCSS).toMatch(/transition:\s*background/);
+    test('monochrome palette has no theme transitions', () => {
+      expect(tokensCSS).not.toMatch(/transition:\s*background/);
     });
   });
 

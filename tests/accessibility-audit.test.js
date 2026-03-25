@@ -41,7 +41,7 @@ describe('Accessibility audit: all components', () => {
     test('buttons use button element not div', () => {
       injectStyles('buttons.css');
       const btn = document.createElement('button');
-      btn.className = 'btn';
+      btn.className = 'ui-btn';
       btn.textContent = 'Action';
       document.body.appendChild(btn);
       expect(btn.tagName).toBe('BUTTON');
@@ -80,10 +80,9 @@ describe('Accessibility audit: all components', () => {
       expect(tokensCSS).toContain('--text-muted:');
     });
 
-    test('light theme defines distinct text and background values', () => {
-      const lightSection = tokensCSS.split('data-theme="light"')[1] || '';
-      expect(lightSection).toContain('--text:');
-      expect(lightSection).toContain('--bg:');
+    test('monochrome palette defines distinct text and background values', () => {
+      expect(tokensCSS).toContain('--text:');
+      expect(tokensCSS).toContain('--bg:');
     });
 
     test('inverse text token exists for accent backgrounds', () => {

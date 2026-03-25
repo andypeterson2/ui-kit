@@ -31,14 +31,14 @@ describe('Component composition patterns', () => {
         <div class="card">
           <div class="card-header"><h3>Actions</h3></div>
           <div class="card-body">
-            <button class="btn ui-btn-primary">Save</button>
-            <button class="btn ui-btn-secondary">Cancel</button>
+            <button class="ui-btn ui-btn-primary">Save</button>
+            <button class="ui-btn ui-btn-secondary">Cancel</button>
           </div>
         </div>`;
       const card = document.querySelector('.card');
       const buttons = card.querySelectorAll('.ui-btn');
       expect(buttons.length).toBe(2);
-      expect(buttons[0].classList.contains('btn-primary')).toBe(true);
+      expect(buttons[0].classList.contains('ui-btn-primary')).toBe(true);
     });
   });
 
@@ -74,13 +74,13 @@ describe('Component composition patterns', () => {
               </div>
             </div>
             <div class="modal-footer">
-              <button class="btn ui-btn-primary">Save</button>
+              <button class="ui-btn ui-btn-primary">Save</button>
             </div>
           </div>
         </div>`;
       const formRows = document.querySelectorAll('.modal .form-row');
       expect(formRows.length).toBe(2);
-      const saveBtn = document.querySelector('.modal-footer .btn-primary');
+      const saveBtn = document.querySelector('.modal-footer .ui-btn-primary');
       expect(saveBtn.textContent).toBe('Save');
     });
   });
@@ -91,7 +91,7 @@ describe('Component composition patterns', () => {
         <nav class="ui-navbar">
           <div class="ui-navbar-brand">App</div>
           <div class="ui-dropdown">
-            <button class="btn">Menu</button>
+            <button class="ui-btn">Menu</button>
             <div class="ui-dropdown-menu">
               <div class="ui-dropdown-item">Option 1</div>
               <div class="ui-dropdown-item">Option 2</div>
@@ -114,12 +114,12 @@ describe('Component composition patterns', () => {
             <tr>
               <td>Item 1</td>
               <td><span class="ui-badge">Active</span></td>
-              <td><button class="btn ui-btn-sm">Edit</button></td>
+              <td><button class="ui-btn ui-btn-sm">Edit</button></td>
             </tr>
           </tbody>
         </table>`;
       const badge = document.querySelector('td .ui-badge');
-      const btn = document.querySelector('td .btn');
+      const btn = document.querySelector('td .ui-btn');
       expect(badge).not.toBeNull();
       expect(btn).not.toBeNull();
     });
@@ -156,11 +156,11 @@ describe('Component composition patterns', () => {
       document.body.innerHTML = `
         <div class="ui-alert" role="alert">
           <span>Something happened</span>
-          <button class="btn ui-btn-sm">Dismiss</button>
+          <button class="ui-btn ui-btn-sm">Dismiss</button>
         </div>`;
       const alert = document.querySelector('.ui-alert');
-      const btn = alert.querySelector('.ui-btn');
-      expect(btn).not.toBeNull();
+      const dismissBtn = alert.querySelector('.ui-btn');
+      expect(dismissBtn).not.toBeNull();
     });
   });
 
@@ -203,7 +203,7 @@ describe('Component composition patterns', () => {
   describe('Tooltip + Button composition', () => {
     test('tooltip wraps interactive elements', () => {
       document.body.innerHTML = `
-        <button class="btn ui-btn-icon" data-tooltip="Click for help" aria-label="Help">?</button>`;
+        <button class="ui-btn ui-btn-icon" data-tooltip="Click for help" aria-label="Help">?</button>`;
       const btn = document.querySelector('[data-tooltip]');
       expect(btn).not.toBeNull();
       expect(btn.getAttribute('data-tooltip')).toBe('Click for help');

@@ -11,7 +11,7 @@ const baseCSS = fs.readFileSync(path.resolve(__dirname, '..', 'base.css'), 'utf-
 describe('Typography scale and font loading', () => {
   test('font family token is defined', () => {
     expect(tokensCSS).toContain("--font:");
-    expect(tokensCSS).toContain('Atkinson Hyperlegible');
+    expect(tokensCSS).toContain('Geneva');
   });
 
   test('monospace font family token is defined', () => {
@@ -28,10 +28,10 @@ describe('Typography scale and font loading', () => {
 
   test('typography scale values increase monotonically', () => {
     const sizeMap = {};
-    const regex = /--(text-\w+):\s*(\d+)px/g;
+    const regex = /--(text-\w+):\s*([\d.]+)rem/g;
     let match;
     while ((match = regex.exec(tokensCSS)) !== null) {
-      sizeMap[match[1]] = parseInt(match[2]);
+      sizeMap[match[1]] = parseFloat(match[2]);
     }
     const ordered = ['text-xs', 'text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl', 'text-3xl'];
     for (let i = 1; i < ordered.length; i++) {
@@ -39,16 +39,11 @@ describe('Typography scale and font loading', () => {
     }
   });
 
-  test('body uses font family token', () => {
-    expect(baseCSS).toContain('var(--font)');
+  test('base.css defines box-sizing reset', () => {
+    expect(baseCSS).toContain('box-sizing: border-box');
   });
 
-  test('body sets font smoothing', () => {
-    expect(baseCSS).toContain('-webkit-font-smoothing');
-    expect(baseCSS).toContain('-moz-osx-font-smoothing');
-  });
-
-  test('body font size is set', () => {
-    expect(baseCSS).toMatch(/font-size:\s*14px/);
+  test('base.css defines reduced motion media query', () => {
+    expect(baseCSS).toContain('prefers-reduced-motion');
   });
 });

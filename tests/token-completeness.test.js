@@ -15,70 +15,69 @@ function extractTokens(css, selector) {
 }
 
 describe('CSS custom property token completeness', () => {
-  const darkTokens = extractTokens(tokensCSS, ':root');
-  const lightTokens = extractTokens(tokensCSS, '[data-theme="light"]');
+  const rootTokens = extractTokens(tokensCSS, ':root');
 
-  test('dark theme defines surface tokens', () => {
+  test('defines surface tokens', () => {
     ['bg', 'surface', 'surface2', 'surface-muted', 'surface-hl'].forEach((t) => {
-      expect(darkTokens).toContain(t);
+      expect(rootTokens).toContain(t);
     });
   });
 
-  test('dark theme defines text tokens', () => {
+  test('defines text tokens', () => {
     ['text', 'text-secondary', 'text-muted', 'text-inverse'].forEach((t) => {
-      expect(darkTokens).toContain(t);
+      expect(rootTokens).toContain(t);
     });
   });
 
-  test('dark theme defines accent tokens', () => {
-    ['accent', 'accent-hover', 'accent-teal', 'accent-olive', 'accent-brown', 'accent-dark'].forEach((t) => {
-      expect(darkTokens).toContain(t);
+  test('defines accent tokens (monochrome)', () => {
+    ['accent', 'accent-hover'].forEach((t) => {
+      expect(rootTokens).toContain(t);
     });
   });
 
-  test('dark theme defines semantic tokens', () => {
+  test('does not define Gruvbox accent tokens', () => {
+    ['accent-teal', 'accent-olive', 'accent-brown', 'accent-dark'].forEach((t) => {
+      expect(rootTokens).not.toContain(t);
+    });
+  });
+
+  test('defines semantic tokens', () => {
     ['success', 'warn', 'danger'].forEach((t) => {
-      expect(darkTokens).toContain(t);
+      expect(rootTokens).toContain(t);
     });
   });
 
-  test('dark theme defines border tokens', () => {
+  test('defines border tokens', () => {
     ['border', 'border-focus', 'focus-ring'].forEach((t) => {
-      expect(darkTokens).toContain(t);
+      expect(rootTokens).toContain(t);
     });
   });
 
-  test('dark theme defines syntax tokens', () => {
+  test('defines syntax tokens', () => {
     ['syntax-string', 'syntax-keyword', 'syntax-function', 'syntax-comment', 'syntax-type'].forEach((t) => {
-      expect(darkTokens).toContain(t);
+      expect(rootTokens).toContain(t);
     });
   });
 
-  test('dark theme defines terminal tokens', () => {
+  test('defines terminal tokens', () => {
     ['term-bg', 'term-scrollbar', 'term-time', 'term-text', 'term-ok', 'term-warn', 'term-err'].forEach((t) => {
-      expect(darkTokens).toContain(t);
+      expect(rootTokens).toContain(t);
     });
   });
 
-  test('dark theme defines typography tokens', () => {
+  test('defines typography tokens', () => {
     ['font', 'font-mono', 'text-xs', 'text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl', 'text-3xl'].forEach((t) => {
-      expect(darkTokens).toContain(t);
+      expect(rootTokens).toContain(t);
     });
   });
 
-  test('dark theme defines motion tokens', () => {
+  test('defines motion tokens', () => {
     ['duration-fast', 'duration-normal'].forEach((t) => {
-      expect(darkTokens).toContain(t);
+      expect(rootTokens).toContain(t);
     });
   });
 
-  test('light theme overrides all color tokens from dark theme', () => {
-    const colorTokens = darkTokens.filter((t) =>
-      !['font', 'font-mono', 'text-xs', 'text-sm', 'text-base', 'text-lg', 'text-xl',
-        'text-2xl', 'text-3xl', 'radius', 'duration-fast', 'duration-normal'].includes(t)
-    );
-    colorTokens.forEach((t) => {
-      expect(lightTokens).toContain(t);
-    });
+  test('no light theme override block exists', () => {
+    expect(tokensCSS).not.toContain('[data-theme="light"]');
   });
 });

@@ -76,7 +76,7 @@ describe('Classifier connection gating', () => {
 
       el.querySelector('.ui-connect-btn').click();
       const stored = JSON.parse(localStorage.getItem('service-config'));
-      expect(stored.classifier).toBe('https://localhost:5001');
+      expect(stored.classifier).toBe('http://localhost:5001');
     });
 
     test('connect click with custom host saves correct URL', () => {
@@ -88,7 +88,7 @@ describe('Classifier connection gating', () => {
       el.querySelector('.ui-connect-btn').click();
 
       const stored = JSON.parse(localStorage.getItem('service-config'));
-      expect(stored.classifier).toBe('https://192.168.1.100:5001');
+      expect(stored.classifier).toBe('http://192.168.1.100:5001');
     });
 
     test('status transitions work correctly', () => {

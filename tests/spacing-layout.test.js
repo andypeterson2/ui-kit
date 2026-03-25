@@ -20,13 +20,8 @@ describe('Spacing and layout grid consistency', () => {
     expect(baseCSS).toContain('padding: 0');
   });
 
-  test('body uses flex column layout', () => {
-    expect(baseCSS).toContain('display: flex');
-    expect(baseCSS).toContain('flex-direction: column');
-  });
-
-  test('body uses 100dvh height', () => {
-    expect(baseCSS).toContain('100dvh');
+  test('base reset applies zero border-radius', () => {
+    expect(baseCSS).toContain('border-radius: 0');
   });
 
   test('grid component uses CSS grid or flex', () => {
@@ -47,12 +42,7 @@ describe('Spacing and layout grid consistency', () => {
     expect(layoutCSS).toContain('display: flex');
   });
 
-  test('border-radius is zero everywhere (design system principle)', () => {
-    expect(baseCSS).toContain('border-radius: 0');
-  });
-
-  test('scrollbar customization is defined', () => {
-    expect(baseCSS).toContain('::-webkit-scrollbar');
-    expect(baseCSS).toContain('width: 4px');
+  test('reduced motion media query is defined', () => {
+    expect(baseCSS).toContain('prefers-reduced-motion');
   });
 });

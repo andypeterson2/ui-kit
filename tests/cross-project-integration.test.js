@@ -37,7 +37,6 @@ describe('Cross-project integration matrix', () => {
     test('accent tokens available for interactive elements', () => {
       expect(tokensCSS).toContain('--accent');
       expect(tokensCSS).toContain('--accent-hover');
-      expect(tokensCSS).toContain('--accent-teal');
     });
 
     test('semantic tokens available for status indicators', () => {
@@ -64,8 +63,7 @@ describe('Cross-project integration matrix', () => {
       expect(tokensCSS).toContain('--canvas-clear-bg');
     });
 
-    test('font tokens match across dark and light themes', () => {
-      // Font tokens should be the same in both themes
+    test('font tokens are defined', () => {
       expect(tokensCSS).toContain('--font:');
       expect(tokensCSS).toContain('--font-mono:');
     });

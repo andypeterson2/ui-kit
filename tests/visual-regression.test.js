@@ -26,11 +26,11 @@ beforeEach(() => {
 
 describe('Visual regression: component structure baselines', () => {
   test('button renders with expected DOM structure', () => {
-    document.body.innerHTML = '<button class="btn ui-btn-primary">Click</button>';
+    document.body.innerHTML = '<button class="ui-btn ui-btn-primary">Click</button>';
     const btn = document.querySelector('.ui-btn');
     expect(btn).not.toBeNull();
     expect(btn.tagName).toBe('BUTTON');
-    expect(btn.classList.contains('btn-primary')).toBe(true);
+    expect(btn.classList.contains('ui-btn-primary')).toBe(true);
     expect(btn.textContent).toBe('Click');
   });
 
@@ -52,14 +52,14 @@ describe('Visual regression: component structure baselines', () => {
         <div class="modal">
           <div class="modal-header"><h2>Modal Title</h2></div>
           <div class="modal-body"><p>Body</p></div>
-          <div class="modal-footer"><button class="btn">OK</button></div>
+          <div class="modal-footer"><button class="ui-btn">OK</button></div>
         </div>
       </div>`;
     const overlay = document.querySelector('.modal-overlay');
     const modal = overlay.querySelector('.modal');
     expect(modal).not.toBeNull();
     expect(modal.querySelector('.modal-header h2').textContent).toBe('Modal Title');
-    expect(modal.querySelector('.modal-footer .btn')).not.toBeNull();
+    expect(modal.querySelector('.modal-footer .ui-btn')).not.toBeNull();
   });
 
   test('form row has label and input structure', () => {
