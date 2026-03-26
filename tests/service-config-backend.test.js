@@ -17,7 +17,11 @@ function loadServiceConfig(searchParams, preStorage) {
     window.location = new URL('http://localhost?' + searchParams);
   }
 
-  const code = fs.readFileSync(path.resolve(__dirname, '..', '..', 'shared-js', 'service-config.js'), 'utf-8');
+  const configPath = [
+    path.resolve(__dirname, '..', '..', 'shared-js', 'service-config.js'),
+    path.resolve(__dirname, 'fixtures', 'service-config.js'),
+  ].find(p => fs.existsSync(p));
+  const code = fs.readFileSync(configPath, 'utf-8');
   eval(code);
   return window.ServiceConfig;
 }
