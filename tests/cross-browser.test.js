@@ -19,12 +19,10 @@ describe('Cross-browser compatibility', () => {
         vendorProps.forEach((prop) => {
           // Extract the standard property name
           const standard = prop.replace(/-(?:webkit|moz|ms|o)-/, '');
-          // The standard version should also be present
-          // (soft check - some prefixed props have no standard equivalent yet)
+          // The standard version must also be present in the same file
+          expect(noComments).toContain(standard);
         });
       });
-      // No assertion failure - just checking parse success
-      expect(true).toBe(true);
     });
   });
 

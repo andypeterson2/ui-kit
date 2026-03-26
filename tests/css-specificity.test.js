@@ -21,16 +21,18 @@ describe('CSS specificity and isolation', () => {
       const content = fs.readFileSync(path.join(componentsDir, file), 'utf-8');
       // Strip comments
       const noComments = content.replace(/\/\*[\s\S]*?\*\//g, '');
-      // Check for hardcoded hex colors (outside of rgba fallbacks)
-      const hardcodedHex = noComments.match(/#[0-9a-fA-F]{3,8}\b/g);
-      if (hardcodedHex) {
-        // If there are hex colors, they should be in var() fallbacks or rgba fallbacks
-        // This is a soft check - we flag but don't fail for minor cases
-      }
       // Main check: components should reference var(--)
       if (content.includes('color:') || content.includes('background:') || content.includes('border')) {
         expect(content).toContain('var(--');
       }
+      // Check that color/background declarations with hex values also use var()
+      const lines = noComments.split('\n');
+      lines.forEach((line) => {
+        const trimmed = line.trim();
+        if (trimmed.match(/^(color|background|background-color)\s*:/) && trimmed.match(/#[0-9a-fA-F]{3,8}\b/)) {
+          expect(trimmed).toContain('var(');
+        }
+      });
     });
   });
 

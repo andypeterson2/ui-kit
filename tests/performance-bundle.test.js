@@ -86,26 +86,17 @@ describe('Performance: bundle size and load time', () => {
   });
 
   describe('File structure efficiency', () => {
-    test('no duplicate CSS declarations across component files', () => {
+    test('component CSS files define a reasonable number of unique selectors', () => {
       const files = fs.readdirSync(componentsDir).filter((f) => f.endsWith('.css'));
-      const selectors = new Map();
+      const selectors = new Set();
       files.forEach((f) => {
         const content = fs.readFileSync(path.join(componentsDir, f), 'utf-8');
         const noComments = content.replace(/\/\*[\s\S]*?\*\//g, '');
-        // Extract top-level class selectors
         const matches = noComments.match(/^\.[a-z][a-z0-9-]+\s*\{/gm) || [];
         matches.forEach((sel) => {
-          const selectorName = sel.replace(/\s*\{/, '').trim();
-          if (selectors.has(selectorName)) {
-            // Allow some shared selectors (like utility classes) but flag duplicates
-            const otherFile = selectors.get(selectorName);
-            // Same class in different files is usually fine (e.g., .card-tags)
-            // Only flag if it's a major component class
-          }
-          selectors.set(selectorName, f);
+          selectors.add(sel.replace(/\s*\{/, '').trim());
         });
       });
-      // At minimum, we should have many unique selectors
       expect(selectors.size).toBeGreaterThan(30);
     });
   });

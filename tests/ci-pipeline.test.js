@@ -42,16 +42,9 @@ describe('CI pipeline for component library', () => {
 
   test('CI workflow file exists', () => {
     const ciPath = path.resolve(__dirname, '..', '.github', 'workflows');
-    // Check if .github/workflows exists (may be in .gitignore exception)
-    const hasCI = fs.existsSync(ciPath);
-    // If no CI dir, check if there's a GitHub Actions config at root
-    if (!hasCI) {
-      // CI may be defined elsewhere or not yet set up - this is informational
-      expect(true).toBe(true);
-    } else {
-      const files = fs.readdirSync(ciPath);
-      expect(files.length).toBeGreaterThan(0);
-    }
+    expect(fs.existsSync(ciPath)).toBe(true);
+    const files = fs.readdirSync(ciPath);
+    expect(files.length).toBeGreaterThan(0);
   });
 
   test('all CSS component files are importable', () => {

@@ -29,26 +29,8 @@ describe('Tag/Badge component variants', () => {
     expect(statusCSS.length).toBeGreaterThan(0);
   });
 
-  test('badge element renders', () => {
-    const badge = document.createElement('span');
-    badge.className = 'ui-badge';
-    badge.textContent = 'New';
-    document.body.appendChild(badge);
-    expect(badge.textContent).toBe('New');
-    expect(badge.classList.contains('ui-badge')).toBe(true);
-  });
-
-  test('multiple badges render side by side', () => {
-    const wrap = document.createElement('div');
-    wrap.style.display = 'flex';
-    wrap.style.gap = '4px';
-    ['Tag A', 'Tag B', 'Tag C'].forEach((text) => {
-      const badge = document.createElement('span');
-      badge.className = 'ui-badge';
-      badge.textContent = text;
-      wrap.appendChild(badge);
-    });
-    document.body.appendChild(wrap);
-    expect(wrap.querySelectorAll('.ui-badge').length).toBe(3);
+  test('badge CSS defines display and padding for .ui-badge', () => {
+    expect(badgesCSS).toMatch(/\.ui-badge\s*\{[^}]*display\s*:/);
+    expect(badgesCSS).toMatch(/\.ui-badge\s*\{[^}]*padding\s*:/);
   });
 });

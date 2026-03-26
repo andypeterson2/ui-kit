@@ -18,7 +18,7 @@ function loadServiceConfig(searchParams, preStorage) {
     delete window.location;
     window.location = new URL('http://localhost?' + searchParams);
   }
-  eval(fs.readFileSync(path.resolve(__dirname, '..', 'service-config.js'), 'utf-8'));
+  eval(fs.readFileSync(path.resolve(__dirname, '..', '..', 'shared-js', 'service-config.js'), 'utf-8'));
   return window.ServiceConfig;
 }
 

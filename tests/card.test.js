@@ -31,13 +31,6 @@ describe('Card component and interactive hover', () => {
     expect(card.querySelector('h2').textContent).toBe('Title');
   });
 
-  test('card-interactive class can be added', () => {
-    const card = document.createElement('div');
-    card.className = 'card card-interactive';
-    document.body.appendChild(card);
-    expect(card.classList.contains('card-interactive')).toBe(true);
-  });
-
   test('stacked cards with margin collapse', () => {
     const c1 = document.createElement('div');
     c1.className = 'card';

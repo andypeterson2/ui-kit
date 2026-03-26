@@ -58,13 +58,6 @@ describe('Tooltip and popover positioning', () => {
     expect(tooltipCSS).toContain('var(--text)');
   });
 
-  test('tooltip renders with data attribute', () => {
-    const btn = document.createElement('button');
-    btn.dataset.tooltip = 'Hello tooltip';
-    document.body.appendChild(btn);
-    expect(btn.dataset.tooltip).toBe('Hello tooltip');
-  });
-
   test('dropdown is positioned absolutely', () => {
     expect(dropdownsCSS).toContain('position: absolute');
   });

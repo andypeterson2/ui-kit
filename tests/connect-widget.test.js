@@ -10,7 +10,7 @@ function loadUIKit() {
   localStorage.clear();
 
   // Load service-config first
-  eval(fs.readFileSync(path.resolve(__dirname, '..', 'service-config.js'), 'utf-8'));
+  eval(fs.readFileSync(path.resolve(__dirname, '..', '..', 'shared-js', 'service-config.js'), 'utf-8'));
   // Load ui-kit
   eval(fs.readFileSync(path.resolve(__dirname, '..', 'ui-kit.js'), 'utf-8'));
   return window.UIKit;
