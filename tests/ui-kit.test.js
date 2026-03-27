@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 const fs = require('fs');
 const path = require('path');
 
@@ -62,7 +59,7 @@ describe('UIKit.initDropdown', () => {
 
 describe('UIKit.onEscape', () => {
   test('fires callback on Escape key', () => {
-    const cb = jest.fn();
+    const cb = vi.fn();
     UIKit.onEscape(cb);
 
     document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
@@ -70,7 +67,7 @@ describe('UIKit.onEscape', () => {
   });
 
   test('does not fire on other keys', () => {
-    const cb = jest.fn();
+    const cb = vi.fn();
     UIKit.onEscape(cb);
 
     document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));

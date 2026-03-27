@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 const fs = require('fs');
 const path = require('path');
 
@@ -77,7 +74,7 @@ describe('UIKit.initConnect', () => {
 
   test('onConnect callback fires with correct data', () => {
     const el = document.getElementById('connect-test');
-    const onConnect = jest.fn();
+    const onConnect = vi.fn();
     UIKit.initConnect(el, { defaultHost: 'localhost', defaultPort: 5055, onConnect });
 
     el.querySelector('.ui-connect-btn').click();
@@ -97,7 +94,7 @@ describe('UIKit.initConnect', () => {
 
   test('destroy() removes click listener', () => {
     const el = document.getElementById('connect-test');
-    const onConnect = jest.fn();
+    const onConnect = vi.fn();
     const widget = UIKit.initConnect(el, { onConnect });
 
     widget.destroy();

@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #766: Test: Component API documentation accuracy
 const fs = require('fs');
 const path = require('path');

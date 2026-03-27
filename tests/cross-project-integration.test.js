@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #751: Cross-project integration test matrix
 const fs = require('fs');
 const path = require('path');

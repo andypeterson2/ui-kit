@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #754: Cross-browser component rendering test
 const fs = require('fs');
 const path = require('path');

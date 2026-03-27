@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #761: Test: Form input components
 const fs = require('fs');
 const path = require('path');

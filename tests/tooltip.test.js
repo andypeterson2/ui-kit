@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #763: Test: Tooltip and popover positioning
 const fs = require('fs');
 const path = require('path');

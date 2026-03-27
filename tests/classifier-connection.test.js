@@ -1,6 +1,4 @@
 /**
- * @jest-environment jsdom
- *
  * Tests for the classifier app's backend connection gating logic.
  * Verifies that training, prediction, and evaluation are blocked
  * until the backend is verified reachable.

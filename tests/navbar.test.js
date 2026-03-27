@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #757: Test: Navigation bar component
 const fs = require('fs');
 const path = require('path');

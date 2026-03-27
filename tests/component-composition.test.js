@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #771: Test: Component composition patterns
 const fs = require('fs');
 const path = require('path');

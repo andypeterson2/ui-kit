@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #764: Test: CSS custom property token completeness
 const fs = require('fs');
 const path = require('path');

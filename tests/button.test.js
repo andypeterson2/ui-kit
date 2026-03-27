@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #755: Test: Button component variants and states
 const fs = require('fs');
 const path = require('path');
