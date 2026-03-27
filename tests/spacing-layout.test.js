@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #760: Test: Spacing and layout grid consistency
 const fs = require('fs');
 const path = require('path');

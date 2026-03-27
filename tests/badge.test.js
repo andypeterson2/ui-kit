@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #762: Test: Tag/Badge component variants
 const fs = require('fs');
 const path = require('path');

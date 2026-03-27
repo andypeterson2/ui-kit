@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #758: Test: Monochrome token definitions
 const fs = require('fs');
 const path = require('path');

@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #767: Test: Theme switching mechanism
 const fs = require('fs');
 const path = require('path');

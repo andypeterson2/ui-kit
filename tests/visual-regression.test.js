@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #750: Visual regression test suite for all components
 const fs = require('fs');
 const path = require('path');

@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #752: Accessibility audit for all components
 const fs = require('fs');
 const path = require('path');

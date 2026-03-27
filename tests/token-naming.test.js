@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #765: Test: Token naming convention consistency
 const fs = require('fs');
 const path = require('path');

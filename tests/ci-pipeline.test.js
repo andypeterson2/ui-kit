@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #768: Test: CI pipeline for component library
 const fs = require('fs');
 const path = require('path');
@@ -9,20 +6,18 @@ describe('CI pipeline for component library', () => {
   test('package.json exists with test script', () => {
     const pkg = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'package.json'), 'utf-8'));
     expect(pkg.scripts.test).toBeDefined();
-    expect(pkg.scripts.test).toContain('jest');
+    expect(pkg.scripts.test).toContain('vitest');
   });
 
-  test('package.json has jest configured', () => {
-    const pkg = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'package.json'), 'utf-8'));
-    expect(pkg.jest).toBeDefined();
-    expect(pkg.jest.testEnvironment).toBe('jsdom');
-    expect(pkg.jest.testMatch).toContain('**/tests/**/*.test.js');
+  test('vitest config exists', () => {
+    const configPath = path.resolve(__dirname, '..', 'vitest.config.js');
+    expect(fs.existsSync(configPath)).toBe(true);
   });
 
-  test('jest and jsdom are in devDependencies', () => {
+  test('vitest and jsdom are in devDependencies', () => {
     const pkg = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'package.json'), 'utf-8'));
-    expect(pkg.devDependencies.jest).toBeDefined();
-    expect(pkg.devDependencies['jest-environment-jsdom']).toBeDefined();
+    expect(pkg.devDependencies.vitest).toBeDefined();
+    expect(pkg.devDependencies.jsdom).toBeDefined();
   });
 
   test('storybook build script exists', () => {

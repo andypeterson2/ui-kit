@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #770: Test: Micro-interaction animations
 const fs = require('fs');
 const path = require('path');

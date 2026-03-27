@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #759: Test: Typography scale and font loading
 const fs = require('fs');
 const path = require('path');

@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #769: Test: CSS specificity and isolation
 const fs = require('fs');
 const path = require('path');

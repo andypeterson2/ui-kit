@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 // WP #756: Test: Card component and interactive hover
 const fs = require('fs');
 const path = require('path');

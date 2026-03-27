@@ -1,6 +1,4 @@
-/**
- * @jest-environment node
- */
+// @vitest-environment node
 // WP #753: Performance test: bundle size and load time
 const fs = require('fs');
 const path = require('path');
