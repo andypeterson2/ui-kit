@@ -12,7 +12,7 @@ ui-kit/
   base.css                Box-sizing reset, body defaults, utilities
   components.css          Aggregator: imports all 14 component files
   components/
-    buttons.css             .btn, .btn-primary, .btn-secondary, ...
+    buttons.css             .ui-btn, .ui-btn-primary, .ui-btn-secondary, ...
     cards.css               .card, .card-header
     forms.css               .form-row, .control-row, .feature-row
     drawers.css             .drawer, .side-handle, .side-panel
@@ -109,10 +109,6 @@ All colours come from CSS custom properties in `tokens.css`. Dark is the default
 |-------|-------------|
 | `--accent` | Primary gold/amber |
 | `--accent-hover` | Hover state |
-| `--accent-teal` | Teal accent |
-| `--accent-olive` | Olive accent |
-| `--accent-brown` | Warm brown |
-| `--accent-dark` | Dark earth |
 
 ### Semantic & Borders
 
@@ -145,26 +141,26 @@ All colours come from CSS custom properties in `tokens.css`. Dark is the default
 
 ### Buttons
 
-Base `.btn` with variant modifiers. All share consistent sizing, font, and disabled states.
+Base `.ui-btn` with variant modifiers. All share consistent sizing, font, and disabled states.
 
 ```html
-<button class="btn btn-primary">Primary</button>
-<button class="btn btn-secondary">Secondary</button>
-<button class="btn btn-danger">Danger</button>
-<button class="btn btn-icon">...</button>
+<button class="ui-btn ui-btn-primary">Primary</button>
+<button class="ui-btn ui-btn-secondary">Secondary</button>
+<button class="ui-btn ui-btn-danger">Danger</button>
+<button class="ui-btn ui-btn-icon">...</button>
 ```
 
 **Disabled & loading:**
 
 ```html
-<button class="btn btn-primary" disabled>Disabled</button>
-<button class="btn btn-primary btn-loading" disabled>Training...</button>
+<button class="ui-btn ui-btn-primary" disabled>Disabled</button>
+<button class="ui-btn ui-btn-primary ui-btn-loading" disabled>Training...</button>
 ```
 
 **With icons:**
 
 ```html
-<button class="btn btn-primary">
+<button class="ui-btn ui-btn-primary">
   <!-- UIKit.ICONS.play + " Train" -->
 </button>
 ```
@@ -179,7 +175,7 @@ Surface-coloured panels with border. Use `.card-header` for a title + action row
 <div class="card">
   <div class="card-header">
     <h2>Model Configuration</h2>
-    <button class="btn btn-secondary">Reset</button>
+    <button class="ui-btn ui-btn-secondary">Reset</button>
   </div>
   <p>Content here...</p>
 </div>
@@ -213,8 +209,8 @@ Three form patterns: `.form-row` (label+input grid), `.control-row` (select+butt
 ```html
 <div class="control-row">
   <select>...</select>
-  <button class="btn btn-primary">Load</button>
-  <button class="btn btn-icon">...</button>
+  <button class="ui-btn ui-btn-primary">Load</button>
+  <button class="ui-btn ui-btn-icon">...</button>
 </div>
 ```
 
@@ -227,7 +223,7 @@ Three form patterns: `.form-row` (label+input grid), `.control-row` (select+butt
     <input class="feature-input" type="number" value="5.1">
   </div>
   <!-- more inputs... -->
-  <button class="btn btn-primary predict-row-btn">Predict</button>
+  <button class="ui-btn ui-btn-primary predict-row-btn">Predict</button>
 </div>
 ```
 
@@ -269,8 +265,8 @@ Scrollable row-based lists with name, tag badge, and action buttons.
   <div class="ui-list-row">
     <span class="ui-list-name">rf_iris_v3.pkl</span>
     <span class="ui-list-tag">96.7%</span>
-    <button class="btn btn-icon">...</button>
-    <button class="btn btn-danger">...</button>
+    <button class="ui-btn ui-btn-icon">...</button>
+    <button class="ui-btn ui-btn-danger">...</button>
   </div>
 </div>
 ```
@@ -323,7 +319,7 @@ Absolutely-positioned menus toggled via JS. Supports `.active` state on items an
 
 ```html
 <div style="position:relative">
-  <button class="btn btn-secondary" id="trigger">Select dataset</button>
+  <button class="ui-btn ui-btn-secondary" id="trigger">Select dataset</button>
   <div class="ui-dropdown hidden" id="menu">
     <button class="ui-dropdown-item active">iris.csv</button>
     <button class="ui-dropdown-item">wine.csv</button>
@@ -377,12 +373,12 @@ Overlay + centred dialog. Use `.hidden` on the overlay to toggle visibility. Com
   <div class="modal">
     <div class="modal-header">
       <span class="modal-title">Confirm Delete</span>
-      <button class="btn btn-icon">...</button>
+      <button class="ui-btn ui-btn-icon">...</button>
     </div>
     <p>Are you sure?</p>
     <div class="modal-footer">
-      <button class="btn btn-secondary">Cancel</button>
-      <button class="btn btn-danger">Delete</button>
+      <button class="ui-btn ui-btn-secondary">Cancel</button>
+      <button class="ui-btn ui-btn-danger">Delete</button>
     </div>
   </div>
 </div>

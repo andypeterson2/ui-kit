@@ -27,7 +27,7 @@ export const Surfaces = {
 export const Accents = {
   render: () => {
     const wrap = document.createElement('div');
-    [['accent', '--accent'], ['hover', '--accent-hover'], ['teal', '--accent-teal'], ['olive', '--accent-olive'], ['brown', '--accent-brown'], ['dark', '--accent-dark']].forEach(([l, v]) => wrap.appendChild(swatch(l, v)));
+    [['accent', '--accent'], ['hover', '--accent-hover']].forEach(([l, v]) => wrap.appendChild(swatch(l, v)));
     return wrap;
   },
 };

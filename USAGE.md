@@ -85,12 +85,12 @@ All styles use class selectors — no IDs. Apply classes to your markup:
 - `.form-row` — label + input grid row
 
 ### Buttons
-- `.btn` — base button
-- `.btn-primary` — accent-coloured fill
-- `.btn-secondary` — outlined
-- `.btn-danger` — red
-- `.btn-icon` — square icon-only button
-- `.btn-loading` — disabled state with spinner
+- `.ui-btn` — base button
+- `.ui-btn-primary` — accent-coloured fill
+- `.ui-btn-secondary` — outlined
+- `.ui-btn-danger` — red
+- `.ui-btn-icon` — square icon-only button
+- `.ui-btn-loading` — disabled state with spinner
 
 ### Drawer
 - `.drawer`, `.drawer-left` — off-screen panel container
